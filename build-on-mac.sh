@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-
+# ===========================
+# macOs, iOs
+# ===========================
 # [brew] install dependencies
-packages='libtool autoconf automake'
+packages='libtool autoconf automake wget'
 brew update
 for pkg in ${packages}; do
     if brew list -1 | grep -q "^${pkg}\$"; then
@@ -64,3 +66,16 @@ mv $DIR_LIBSODIUM/libsodium-android-armv7-a/lib/libsodium.a $DIR_LIBSODIUM/libso
 
 mkdir -p $DIR_DEST/Plugins/Android/libs/x86
 mv $DIR_LIBSODIUM/libsodium-android-i686/lib/libsodium.a $DIR_LIBSODIUM/libsodium-android-i686/lib/libsodium.so $DIR_DEST/Plugins/Android/libs/x86
+
+
+# ===========================
+# Windows
+# ===========================
+DIR_MSVC=${ROOT}/msvc
+wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.10-msvc.zip
+unzip libsodium-1.0.10-msvc.zip -d ${DIR_MSVC}
+
+mkdir -p ${DIR_DEST}/Plugins/x86
+mkdir -p ${DIR_DEST}/Plugins/x64
+cp ${DIR_MSVC}/Win32/Debug/v140/dynamic/libsodium.dll ${DIR_MSVC}/Win32/Debug/v140/dynamic/libsodium.pdb  ${DIR_DEST}/Plugins/x86
+cp ${DIR_MSVC}/x64/Debug/v140/dynamic/libsodium.dll ${DIR_MSVC}/x64/Debug/v140/dynamic/libsodium.pdb ${DIR_DEST}/Plugins/x64
