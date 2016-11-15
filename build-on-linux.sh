@@ -8,7 +8,6 @@ DIR_LIBSODIUM=${ROOT}/libsodium
 
 # [src] libsodium
 git clone https://github.com/jedisct1/libsodium.git $DIR_LIBSODIUM && cd $DIR_LIBSODIUM
-./autogen.sh
 
 # ===========================
 # Android
@@ -27,6 +26,7 @@ mv $DIR_TEMP/android-ndk-r13b ${ANDROID_NDK_HOME}
 
 # [generate]
 cd $DIR_LIBSODIUM
+./autogen.sh
 ./dist-build/android-armv7-a.sh
 ./dist-build/android-x86.sh
 

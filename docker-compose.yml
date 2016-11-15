@@ -4,4 +4,4 @@ services:
   libsodium:
     build: .
     volumes:
-      - './Android/:/root/Android/'
+      - './output/:/root/output/'

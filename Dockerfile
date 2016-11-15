@@ -20,6 +20,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
-ADD build-on-android.sh .
-RUN chmod +x build-on-android.sh
-ENTRYPOINT ["./build-on-android.sh"]
+ADD build-on-linux.sh .
+RUN chmod +x build-on-linux.sh
+ENTRYPOINT ["./build-on-linux.sh"]
