@@ -20,8 +20,8 @@ DIR_TEMP=${ROOT}/temp_dir
 
 # [sdk] Android NDK
 mkdir $DIR_TEMP && cd $DIR_TEMP
-wget -q https://dl.google.com/android/repository/android-ndk-r13b-darwin-x86_64.zip
-unzip -o -q android-ndk-r13b-darwin-x86_64.zip
+wget -q https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip
+unzip -o -q android-ndk-r13b-linux-x86_64.zip
 mv $DIR_TEMP/android-ndk-r13b ${ANDROID_NDK_HOME}
 
 
