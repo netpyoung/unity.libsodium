@@ -1,6 +1,6 @@
-libsodium/
-libsodium*.zip
-temp_dir/
-output/
-msvc/
-android-ndk/
+/libsodium/
+/libsodium*.zip
+/temp_dir/
+/output/
+/msvc/
+/android-ndk/

@@ -23,3 +23,6 @@ docker-compose up
 ```
 libsodium/builds/msvc/build/buildall.bat
 ```
+
+
+ag '^[a-z].*\(.*' *.h --no-numbers > a.txt
