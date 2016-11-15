@@ -17,24 +17,27 @@ brew upgrade ${packages} || true
 
 # [environment]
 export ANDROID_NDK_HOME=/opt/android-ndk
-export PATH=${ANDROID_NDK_HOME}:${PATH}
+export PATH=${ANDROID_NDK_HOME}:${DIST}
+DIR_DEST=./
+DIR_TEMP=./temp_libsodium
 
 # [sdk] Android NDK
-mkdir /opt/android-ndk-tmp
-cd /opt/android-ndk-tmp
+mkdir $DIR_TEMP && cd $DIR_TEMP
 wget -q https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip
 unzip -q android-ndk-r13b-linux-x86_64.zip
-mv ./android-ndk-r13b ${ANDROID_NDK_HOME}
-rm -rf /opt/android-ndk-tmp
+mv $DIR_TEMP/android-ndk-r13b ${ANDROID_NDK_HOME}
+
 
 # [src] libsodium
-cd /root
-git clone https://github.com/jedisct1/libsodium.git
-cd /root/libsodium
+git clone https://github.com/jedisct1/libsodium.git $DIR_LIBSODIUM
+cd $DIR_LIBSODIUM
 ./autogen.sh
-dist-build/ios.sh
-dist-build/osx.sh
+./dist-build/ios.sh
+./dist-build/osx.sh
 
 
-libsodium/libsodium-ios/lib/libsodium.a /iOS/libsodium.a
-libsodium/libsodium-osx/lib/libsodium.*.dylib /Plugins/x64/sodium.bundle
+# [bin] copy to dest
+mkdir -p $DIR_DEST/Plugins/iOs
+mkdir -p $DIR_DEST/Plugins/x64
+cp $DIR_LIBSODIUM/libsodium-ios/lib/libsodium.a $DIR_DEST/Plugins/iOS/libsodium.a
+cp $DIR_LIBSODIUM/libsodium-osx/lib/libsodium.*.dylib $DIR_DEST/Plugins/x64/sodium.bundle
