@@ -72,8 +72,8 @@ mv $DIR_LIBSODIUM/libsodium-android-i686/lib/libsodium.a $DIR_LIBSODIUM/libsodiu
 # Windows
 # ===========================
 DIR_MSVC=${ROOT}/msvc
-wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.10-msvc.zip
-unzip libsodium-1.0.10-msvc.zip -d ${DIR_MSVC}
+wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.16-msvc.zip
+unzip libsodium-1.0.16-msvc.zip -d ${DIR_MSVC}
 
 mkdir -p ${DIR_DEST}/Plugins/x86
 mkdir -p ${DIR_DEST}/Plugins/x64
