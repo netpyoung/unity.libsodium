@@ -91,3 +91,7 @@ libsodium/builds/msvc/build/buildall.bat
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 */
 ```
+
+# contributor
+* [@netpyoung)(https://github.com/netpyoung)
+* [@Ekwav](https://github.com/Ekwav)
