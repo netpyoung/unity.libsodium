@@ -93,5 +93,5 @@ libsodium/builds/msvc/build/buildall.bat
 ```
 
 # contributor
-* [@netpyoung)(https://github.com/netpyoung)
+* [@netpyoung](https://github.com/netpyoung)
 * [@Ekwav](https://github.com/Ekwav)
