@@ -10,7 +10,7 @@
 
 ## installation
 
-- [Download this .unitypackage](https://github.com/netpyoung/unity.libsodium/raw/master/libsodium-0.0.1.unitypackage)
+- [Download this .unitypackage from Release Page](https://github.com/netpyoung/unity.libsodium/releases)
 
 ## Example
 
