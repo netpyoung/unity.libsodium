@@ -1,7 +1,0 @@
-version: '2'
-
-services:
-  libsodium64:
-    build: ./64
-    volumes:
-      - './output64/:/root/output/'
