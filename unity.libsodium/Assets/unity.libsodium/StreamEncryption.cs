@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using System.Text;
 
 namespace unity.libsodium
@@ -42,10 +41,13 @@ namespace unity.libsodium
             //	string.Format("nonce must be {0} bytes in length.", CHACHA20_NONCEBYTES));
 
             byte[] buffer = new byte[message.Length];
-            int ret = NativeLibsodium.crypto_stream_chacha20_xor(buffer, message, message.Length, nonce, key);
+
+            int ret = NativeLibsodium.crypto_stream_chacha20_xor(buffer, message, (ulong)message.Length, nonce, key);
 
             if (ret != 0)
                 throw new Exception("Error encrypting message.");
+
+
 
             return buffer;
         }
@@ -70,41 +72,47 @@ namespace unity.libsodium
             //	string.Format("nonce must be {0} bytes in length.", CHACHA20_NONCEBYTES));
 
             byte[] buffer = new byte[cipherText.Length];
-            int ret = NativeLibsodium.crypto_stream_chacha20_xor(buffer, cipherText, cipherText.Length, nonce, key);
+            int ret = NativeLibsodium.crypto_stream_chacha20_xor(buffer, cipherText, (ulong)cipherText.Length, nonce, key);
 
             if (ret != 0)
                 throw new Exception("Error derypting message.");
-
             return buffer;
         }
 
 
-        public static byte[] GetRandomBytes(int count)
+        unsafe public static byte[] GetRandomBytes(int count)
         {
             byte[] buffer = new byte[count];
-            NativeLibsodium.randombytes_buf(buffer, count);
+            fixed (byte* bufferPtr = buffer)
+            {
+                NativeLibsodium.randombytes_buf(bufferPtr, new UIntPtr((uint)count));
+            }
             return buffer;
         }
 
 
-        public static byte[] HexToBinary(string hex)
+        unsafe public static byte[] HexToBinary(string hex)
         {
             const string IGNORED_CHARS = ":- ";
 
             byte[] arr = new byte[hex.Length >> 1];
-            IntPtr bin = Marshal.AllocHGlobal(arr.Length);
+            byte[] hexBytes = Encoding.ASCII.GetBytes(hex);
             int binLength;
 
-            //we call sodium_hex2bin with some chars to be ignored
-            int ret = NativeLibsodium.sodium_hex2bin(bin, arr.Length, hex, hex.Length, IGNORED_CHARS, out binLength,
-                null);
+            fixed (byte* arrPtr = arr)
+            {
+                //we call sodium_hex2bin with some chars to be ignored
+                int ret = NativeLibsodium.sodium_hex2bin(
+                    arrPtr, new UIntPtr((uint)arr.Length),
+                    hex, new UIntPtr((uint)hexBytes.Length),
+                    IGNORED_CHARS,
+                    out binLength,
+                    null
+                );
 
-            Marshal.Copy(bin, arr, 0, binLength);
-            Marshal.FreeHGlobal(bin);
-
-            if (ret != 0)
-                throw new Exception("Internal error, decoding failed.");
-
+                if (ret != 0)
+                    throw new Exception("Internal error, decoding failed.");
+            }
             //remove the trailing nulls from the array, if there were some format characters in the hex string before
             if (arr.Length != binLength)
             {

@@ -7,6 +7,7 @@
 ## prebuilt library
 
 - prebuilt library are maintained by [prebuilt-libsodium](https://github.com/netpyoung/prebuilt-libsodium)
+  - libsodium 1.0.18
 
 ## installation
 
@@ -64,3 +65,9 @@ Debug.Log (Encoding.UTF8.GetString(decrypted));
 
 - [@netpyoung](https://github.com/netpyoung)
 - [@Ekwav](https://github.com/Ekwav)
+
+## Ref
+
+- <https://github.com/jedisct1/libsodium/tree/master/src/libsodium/include/sodium/>
+- <https://github.com/joshjdevl/libsodium-jni/blob/master/src/main/java/org/libsodium/jni/SodiumJNI.java>
+- <https://github.com/adamcaudill/libsodium-net/blob/master/libsodium-net/SodiumLibrary.cs>
