@@ -70,4 +70,6 @@ Debug.Log (Encoding.UTF8.GetString(decrypted));
 
 - <https://github.com/jedisct1/libsodium/tree/master/src/libsodium/include/sodium/>
 - <https://github.com/joshjdevl/libsodium-jni/blob/master/src/main/java/org/libsodium/jni/SodiumJNI.java>
+- <https://github.com/terl/lazysodium-android>
 - <https://github.com/adamcaudill/libsodium-net/blob/master/libsodium-net/SodiumLibrary.cs>
+- <https://github.com/microsoft/ClangSharp>
