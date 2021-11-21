@@ -26,7 +26,7 @@ namespace unity.libsodium
             return EncryptChaCha20(Encoding.UTF8.GetBytes(message), nonce, key);
         }
 
-        public static byte[] EncryptChaCha20(byte[] message, byte[] nonce, byte[] key)
+        unsafe public static byte[] EncryptChaCha20(byte[] message, byte[] nonce, byte[] key)
         {
             //validate the length of the key
             if (key == null || key.Length != CHACHA20_KEY_BYTES)
@@ -41,14 +41,12 @@ namespace unity.libsodium
             //	string.Format("nonce must be {0} bytes in length.", CHACHA20_NONCEBYTES));
 
             byte[] buffer = new byte[message.Length];
-
-            int ret = NativeLibsodium.crypto_stream_chacha20_xor(buffer, message, (ulong)message.Length, nonce, key);
-
-            if (ret != 0)
-                throw new Exception("Error encrypting message.");
-
-
-
+            fixed (byte* bufferPtr = buffer)
+            {
+                int ret = NativeLibsodium.crypto_stream_chacha20_xor(bufferPtr, message, (ulong)message.Length, nonce, key);
+                if (ret != 0)
+                    throw new Exception("Error encrypting message.");
+            }
             return buffer;
         }
 
@@ -57,7 +55,7 @@ namespace unity.libsodium
             return DecryptChaCha20(HexToBinary(cipherText), nonce, key);
         }
 
-        public static byte[] DecryptChaCha20(byte[] cipherText, byte[] nonce, byte[] key)
+        unsafe public static byte[] DecryptChaCha20(byte[] cipherText, byte[] nonce, byte[] key)
         {
             //validate the length of the key
             if (key == null || key.Length != CHACHA20_KEY_BYTES)
@@ -72,20 +70,22 @@ namespace unity.libsodium
             //	string.Format("nonce must be {0} bytes in length.", CHACHA20_NONCEBYTES));
 
             byte[] buffer = new byte[cipherText.Length];
-            int ret = NativeLibsodium.crypto_stream_chacha20_xor(buffer, cipherText, (ulong)cipherText.Length, nonce, key);
-
-            if (ret != 0)
-                throw new Exception("Error derypting message.");
+            fixed (byte* bufferPtr = buffer)
+            {
+                int ret = NativeLibsodium.crypto_stream_chacha20_xor(bufferPtr, cipherText, (ulong)cipherText.Length, nonce, key);
+                if (ret != 0)
+                    throw new Exception("Error derypting message.");
+            }
             return buffer;
         }
 
 
-        unsafe public static byte[] GetRandomBytes(int count)
+        public static unsafe byte[] GetRandomBytes(int count)
         {
             byte[] buffer = new byte[count];
             fixed (byte* bufferPtr = buffer)
             {
-                NativeLibsodium.randombytes_buf(bufferPtr, new UIntPtr((uint)count));
+                NativeLibsodium.randombytes_buf(bufferPtr, count);
             }
             return buffer;
         }
@@ -103,8 +103,8 @@ namespace unity.libsodium
             {
                 //we call sodium_hex2bin with some chars to be ignored
                 int ret = NativeLibsodium.sodium_hex2bin(
-                    arrPtr, new UIntPtr((uint)arr.Length),
-                    hex, new UIntPtr((uint)hexBytes.Length),
+                    arrPtr, arr.Length,
+                    hex, hexBytes.Length,
                     IGNORED_CHARS,
                     out binLength,
                     null

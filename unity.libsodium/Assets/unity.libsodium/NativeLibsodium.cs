@@ -27,112 +27,6 @@ namespace unity.libsodium
         public static extern void sodium_misuse();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aegis128l_is_available();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_aead_aegis128l_keybytes();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_aead_aegis128l_nsecbytes();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_aead_aegis128l_npubbytes();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_aead_aegis128l_abytes();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_aead_aegis128l_messagebytes_max();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aegis128l_encrypt([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aegis128l_decrypt([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aegis128l_encrypt_detached([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long *")] ulong* maclen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aegis128l_decrypt_detached([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_aead_aegis128l_keygen([NativeTypeName("unsigned char [16]")] byte* k);
-
-        [NativeTypeName("#define crypto_aead_aegis128l_KEYBYTES 16U")]
-        public const uint crypto_aead_aegis128l_KEYBYTES = 16U;
-
-        [NativeTypeName("#define crypto_aead_aegis128l_NSECBYTES 0U")]
-        public const uint crypto_aead_aegis128l_NSECBYTES = 0U;
-
-        [NativeTypeName("#define crypto_aead_aegis128l_NPUBBYTES 16U")]
-        public const uint crypto_aead_aegis128l_NPUBBYTES = 16U;
-
-        [NativeTypeName("#define crypto_aead_aegis128l_ABYTES 16U")]
-        public const uint crypto_aead_aegis128l_ABYTES = 16U;
-
-        [NativeTypeName("#define crypto_aead_aegis128l_MESSAGEBYTES_MAX SODIUM_MIN(SODIUM_SIZE_MAX - crypto_aead_aegis128l_ABYTES, \\\r\n               (1ULL << 61) - 1)")]
-        public const ulong crypto_aead_aegis128l_MESSAGEBYTES_MAX = ((((0xffffffffffffffffUL) < (0xffffffffffffffffUL) ? (0xffffffffffffffffUL) : (0xffffffffffffffffUL)) - 16U) < ((1UL << 61) - 1) ? (((0xffffffffffffffffUL) < (0xffffffffffffffffUL) ? (0xffffffffffffffffUL) : (0xffffffffffffffffUL)) - 16U) : ((1UL << 61) - 1));
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aegis256_is_available();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_aead_aegis256_keybytes();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_aead_aegis256_nsecbytes();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_aead_aegis256_npubbytes();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_aead_aegis256_abytes();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_aead_aegis256_messagebytes_max();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aegis256_encrypt([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aegis256_decrypt([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aegis256_encrypt_detached([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long *")] ulong* maclen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aegis256_decrypt_detached([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_aead_aegis256_keygen([NativeTypeName("unsigned char [32]")] byte* k);
-
-        [NativeTypeName("#define crypto_aead_aegis256_KEYBYTES 32U")]
-        public const uint crypto_aead_aegis256_KEYBYTES = 32U;
-
-        [NativeTypeName("#define crypto_aead_aegis256_NSECBYTES 0U")]
-        public const uint crypto_aead_aegis256_NSECBYTES = 0U;
-
-        [NativeTypeName("#define crypto_aead_aegis256_NPUBBYTES 32U")]
-        public const uint crypto_aead_aegis256_NPUBBYTES = 32U;
-
-        [NativeTypeName("#define crypto_aead_aegis256_ABYTES 16U")]
-        public const uint crypto_aead_aegis256_ABYTES = 16U;
-
-        [NativeTypeName("#define crypto_aead_aegis256_MESSAGEBYTES_MAX SODIUM_MIN(SODIUM_SIZE_MAX - crypto_aead_aegis256_ABYTES, \\\r\n               (1ULL << 61) - 1)")]
-        public const ulong crypto_aead_aegis256_MESSAGEBYTES_MAX = ((((0xffffffffffffffffUL) < (0xffffffffffffffffUL) ? (0xffffffffffffffffUL) : (0xffffffffffffffffUL)) - 16U) < ((1UL << 61) - 1) ? (((0xffffffffffffffffUL) < (0xffffffffffffffffUL) ? (0xffffffffffffffffUL) : (0xffffffffffffffffUL)) - 16U) : ((1UL << 61) - 1));
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int crypto_aead_aes256gcm_is_available();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -160,31 +54,31 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_aead_aes256gcm_statebytes();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aes256gcm_encrypt([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_aes256gcm_encrypt([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aes256gcm_decrypt([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_aes256gcm_decrypt([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte* nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aes256gcm_encrypt_detached([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long *")] ulong* maclen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_aes256gcm_encrypt_detached([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned char *")] byte* mac, [NativeTypeName("unsigned long long *")] ulong* maclen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aes256gcm_decrypt_detached([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_aes256gcm_decrypt_detached([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("unsigned char *")] byte* nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int crypto_aead_aes256gcm_beforenm([NativeTypeName("crypto_aead_aes256gcm_state *")] crypto_aead_aes256gcm_state_* ctx_, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aes256gcm_encrypt_afternm([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const crypto_aead_aes256gcm_state *")] crypto_aead_aes256gcm_state_* ctx_);
+        public static extern int crypto_aead_aes256gcm_encrypt_afternm([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const crypto_aead_aes256gcm_state *")] crypto_aead_aes256gcm_state_* ctx_);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aes256gcm_decrypt_afternm([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const crypto_aead_aes256gcm_state *")] crypto_aead_aes256gcm_state_* ctx_);
+        public static extern int crypto_aead_aes256gcm_decrypt_afternm([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte* nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const crypto_aead_aes256gcm_state *")] crypto_aead_aes256gcm_state_* ctx_);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aes256gcm_encrypt_detached_afternm([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long *")] ulong* maclen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const crypto_aead_aes256gcm_state *")] crypto_aead_aes256gcm_state_* ctx_);
+        public static extern int crypto_aead_aes256gcm_encrypt_detached_afternm([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned char *")] byte* mac, [NativeTypeName("unsigned long long *")] ulong* maclen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const crypto_aead_aes256gcm_state *")] crypto_aead_aes256gcm_state_* ctx_);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_aes256gcm_decrypt_detached_afternm([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const crypto_aead_aes256gcm_state *")] crypto_aead_aes256gcm_state_* ctx_);
+        public static extern int crypto_aead_aes256gcm_decrypt_detached_afternm([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("unsigned char *")] byte* nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const crypto_aead_aes256gcm_state *")] crypto_aead_aes256gcm_state_* ctx_);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_aead_aes256gcm_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -201,7 +95,7 @@ namespace unity.libsodium
         [NativeTypeName("#define crypto_aead_aes256gcm_ABYTES 16U")]
         public const uint crypto_aead_aes256gcm_ABYTES = 16U;
 
-        [NativeTypeName("#define crypto_aead_aes256gcm_MESSAGEBYTES_MAX SODIUM_MIN(SODIUM_SIZE_MAX - crypto_aead_aes256gcm_ABYTES, \\\r\n               (16ULL * ((1ULL << 32) - 2ULL)))")]
+        [NativeTypeName("#define crypto_aead_aes256gcm_MESSAGEBYTES_MAX SODIUM_MIN(SODIUM_SIZE_MAX - crypto_aead_aes256gcm_ABYTES, \\\n               (16ULL * ((1ULL << 32) - 2ULL)))")]
         public const ulong crypto_aead_aes256gcm_MESSAGEBYTES_MAX = ((((0xffffffffffffffffUL) < (0xffffffffffffffffUL) ? (0xffffffffffffffffUL) : (0xffffffffffffffffUL)) - 16U) < ((16UL * ((1UL << 32) - 2UL))) ? (((0xffffffffffffffffUL) < (0xffffffffffffffffUL) ? (0xffffffffffffffffUL) : (0xffffffffffffffffUL)) - 16U) : ((16UL * ((1UL << 32) - 2UL))));
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -225,16 +119,16 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_aead_chacha20poly1305_ietf_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_chacha20poly1305_ietf_encrypt([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_chacha20poly1305_ietf_encrypt([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_chacha20poly1305_ietf_decrypt([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_chacha20poly1305_ietf_decrypt([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte* nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_chacha20poly1305_ietf_encrypt_detached([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long *")] ulong* maclen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_chacha20poly1305_ietf_encrypt_detached([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned char *")] byte* mac, [NativeTypeName("unsigned long long *")] ulong* maclen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_chacha20poly1305_ietf_decrypt_detached([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_chacha20poly1305_ietf_decrypt_detached([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("unsigned char *")] byte* nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_aead_chacha20poly1305_ietf_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -260,16 +154,16 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_aead_chacha20poly1305_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_chacha20poly1305_encrypt([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_chacha20poly1305_encrypt([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_chacha20poly1305_decrypt([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_chacha20poly1305_decrypt([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte* nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_chacha20poly1305_encrypt_detached([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long *")] ulong* maclen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_chacha20poly1305_encrypt_detached([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned char *")] byte* mac, [NativeTypeName("unsigned long long *")] ulong* maclen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_chacha20poly1305_decrypt_detached([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_chacha20poly1305_decrypt_detached([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("unsigned char *")] byte* nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_aead_chacha20poly1305_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -286,7 +180,7 @@ namespace unity.libsodium
         [NativeTypeName("#define crypto_aead_chacha20poly1305_ietf_ABYTES 16U")]
         public const uint crypto_aead_chacha20poly1305_ietf_ABYTES = 16U;
 
-        [NativeTypeName("#define crypto_aead_chacha20poly1305_ietf_MESSAGEBYTES_MAX SODIUM_MIN(SODIUM_SIZE_MAX - crypto_aead_chacha20poly1305_ietf_ABYTES, \\\r\n               (64ULL * ((1ULL << 32) - 1ULL)))")]
+        [NativeTypeName("#define crypto_aead_chacha20poly1305_ietf_MESSAGEBYTES_MAX SODIUM_MIN(SODIUM_SIZE_MAX - crypto_aead_chacha20poly1305_ietf_ABYTES, \\\n               (64ULL * ((1ULL << 32) - 1ULL)))")]
         public const ulong crypto_aead_chacha20poly1305_ietf_MESSAGEBYTES_MAX = ((((0xffffffffffffffffUL) < (0xffffffffffffffffUL) ? (0xffffffffffffffffUL) : (0xffffffffffffffffUL)) - 16U) < ((64UL * ((1UL << 32) - 1UL))) ? (((0xffffffffffffffffUL) < (0xffffffffffffffffUL) ? (0xffffffffffffffffUL) : (0xffffffffffffffffUL)) - 16U) : ((64UL * ((1UL << 32) - 1UL))));
 
         [NativeTypeName("#define crypto_aead_chacha20poly1305_KEYBYTES 32U")]
@@ -340,16 +234,16 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_aead_xchacha20poly1305_ietf_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_xchacha20poly1305_ietf_encrypt([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_xchacha20poly1305_ietf_encrypt([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_xchacha20poly1305_ietf_decrypt([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_xchacha20poly1305_ietf_decrypt([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte* nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_xchacha20poly1305_ietf_encrypt_detached([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long *")] ulong* maclen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_xchacha20poly1305_ietf_encrypt_detached([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned char *")] byte* mac, [NativeTypeName("unsigned long long *")] ulong* maclen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_aead_xchacha20poly1305_ietf_decrypt_detached([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned char *")] byte[] nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_aead_xchacha20poly1305_ietf_decrypt_detached([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("unsigned char *")] byte* nsec, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("const unsigned char *")] byte[] npub, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_aead_xchacha20poly1305_ietf_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -551,51 +445,51 @@ namespace unity.libsodium
         public static extern sbyte* crypto_box_primitive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_seed_keypair([NativeTypeName("unsigned char *")] byte[] pk, [NativeTypeName("unsigned char *")] byte[] sk, [NativeTypeName("const unsigned char *")] byte[] seed);
+        public static extern int crypto_box_seed_keypair([NativeTypeName("unsigned char *")] byte* pk, [NativeTypeName("unsigned char *")] byte* sk, [NativeTypeName("const unsigned char *")] byte[] seed);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_keypair([NativeTypeName("unsigned char *")] byte[] pk, [NativeTypeName("unsigned char *")] byte[] sk);
+        public static extern int crypto_box_keypair([NativeTypeName("unsigned char *")] byte* pk, [NativeTypeName("unsigned char *")] byte* sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_easy([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_easy([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_open_easy([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_open_easy([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_detached([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_detached([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned char *")] byte* mac, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_open_detached([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_open_detached([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
         public static extern UIntPtr crypto_box_beforenmbytes();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_beforenm([NativeTypeName("unsigned char *")] byte[] k, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_beforenm([NativeTypeName("unsigned char *")] byte* k, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_easy_afternm([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_box_easy_afternm([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_open_easy_afternm([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_box_open_easy_afternm([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_detached_afternm([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_box_detached_afternm([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned char *")] byte* mac, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_open_detached_afternm([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_box_open_detached_afternm([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
         public static extern UIntPtr crypto_box_sealbytes();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_seal([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] pk);
+        public static extern int crypto_box_seal([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] pk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_seal_open([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_seal_open([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
@@ -606,16 +500,16 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_box_boxzerobytes();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_open([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_open([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_afternm([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_box_afternm([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_open_afternm([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_box_open_afternm([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [NativeTypeName("#define crypto_box_SEEDBYTES crypto_box_curve25519xsalsa20poly1305_SEEDBYTES")]
         public const uint crypto_box_SEEDBYTES = 32U;
@@ -679,47 +573,47 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_box_curve25519xchacha20poly1305_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xchacha20poly1305_seed_keypair([NativeTypeName("unsigned char *")] byte[] pk, [NativeTypeName("unsigned char *")] byte[] sk, [NativeTypeName("const unsigned char *")] byte[] seed);
+        public static extern int crypto_box_curve25519xchacha20poly1305_seed_keypair([NativeTypeName("unsigned char *")] byte* pk, [NativeTypeName("unsigned char *")] byte* sk, [NativeTypeName("const unsigned char *")] byte[] seed);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xchacha20poly1305_keypair([NativeTypeName("unsigned char *")] byte[] pk, [NativeTypeName("unsigned char *")] byte[] sk);
+        public static extern int crypto_box_curve25519xchacha20poly1305_keypair([NativeTypeName("unsigned char *")] byte* pk, [NativeTypeName("unsigned char *")] byte* sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xchacha20poly1305_easy([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_curve25519xchacha20poly1305_easy([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xchacha20poly1305_open_easy([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_curve25519xchacha20poly1305_open_easy([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xchacha20poly1305_detached([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_curve25519xchacha20poly1305_detached([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned char *")] byte* mac, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xchacha20poly1305_open_detached([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_curve25519xchacha20poly1305_open_detached([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xchacha20poly1305_beforenm([NativeTypeName("unsigned char *")] byte[] k, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_curve25519xchacha20poly1305_beforenm([NativeTypeName("unsigned char *")] byte* k, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xchacha20poly1305_easy_afternm([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_box_curve25519xchacha20poly1305_easy_afternm([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xchacha20poly1305_open_easy_afternm([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_box_curve25519xchacha20poly1305_open_easy_afternm([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xchacha20poly1305_detached_afternm([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_box_curve25519xchacha20poly1305_detached_afternm([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned char *")] byte* mac, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xchacha20poly1305_open_detached_afternm([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_box_curve25519xchacha20poly1305_open_detached_afternm([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
         public static extern UIntPtr crypto_box_curve25519xchacha20poly1305_sealbytes();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xchacha20poly1305_seal([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] pk);
+        public static extern int crypto_box_curve25519xchacha20poly1305_seal([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] pk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xchacha20poly1305_seal_open([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_curve25519xchacha20poly1305_seal_open([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [NativeTypeName("#define crypto_box_curve25519xchacha20poly1305_SEEDBYTES 32U")]
         public const uint crypto_box_curve25519xchacha20poly1305_SEEDBYTES = 32U;
@@ -742,7 +636,7 @@ namespace unity.libsodium
         [NativeTypeName("#define crypto_box_curve25519xchacha20poly1305_MESSAGEBYTES_MAX (crypto_stream_xchacha20_MESSAGEBYTES_MAX - crypto_box_curve25519xchacha20poly1305_MACBYTES)")]
         public const ulong crypto_box_curve25519xchacha20poly1305_MESSAGEBYTES_MAX = (((0xffffffffffffffffUL) < (0xffffffffffffffffUL) ? (0xffffffffffffffffUL) : (0xffffffffffffffffUL)) - 16U);
 
-        [NativeTypeName("#define crypto_box_curve25519xchacha20poly1305_SEALBYTES (crypto_box_curve25519xchacha20poly1305_PUBLICKEYBYTES + \\\r\n     crypto_box_curve25519xchacha20poly1305_MACBYTES)")]
+        [NativeTypeName("#define crypto_box_curve25519xchacha20poly1305_SEALBYTES (crypto_box_curve25519xchacha20poly1305_PUBLICKEYBYTES + \\\n     crypto_box_curve25519xchacha20poly1305_MACBYTES)")]
         public const uint crypto_box_curve25519xchacha20poly1305_SEALBYTES = (32U + 16U);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -774,13 +668,13 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_box_curve25519xsalsa20poly1305_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xsalsa20poly1305_seed_keypair([NativeTypeName("unsigned char *")] byte[] pk, [NativeTypeName("unsigned char *")] byte[] sk, [NativeTypeName("const unsigned char *")] byte[] seed);
+        public static extern int crypto_box_curve25519xsalsa20poly1305_seed_keypair([NativeTypeName("unsigned char *")] byte* pk, [NativeTypeName("unsigned char *")] byte* sk, [NativeTypeName("const unsigned char *")] byte[] seed);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xsalsa20poly1305_keypair([NativeTypeName("unsigned char *")] byte[] pk, [NativeTypeName("unsigned char *")] byte[] sk);
+        public static extern int crypto_box_curve25519xsalsa20poly1305_keypair([NativeTypeName("unsigned char *")] byte* pk, [NativeTypeName("unsigned char *")] byte* sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xsalsa20poly1305_beforenm([NativeTypeName("unsigned char *")] byte[] k, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_curve25519xsalsa20poly1305_beforenm([NativeTypeName("unsigned char *")] byte* k, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
@@ -791,16 +685,16 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_box_curve25519xsalsa20poly1305_zerobytes();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xsalsa20poly1305([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_curve25519xsalsa20poly1305([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xsalsa20poly1305_open([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_box_curve25519xsalsa20poly1305_open([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xsalsa20poly1305_afternm([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_box_curve25519xsalsa20poly1305_afternm([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_box_curve25519xsalsa20poly1305_open_afternm([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_box_curve25519xsalsa20poly1305_open_afternm([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [NativeTypeName("#define crypto_box_curve25519xsalsa20poly1305_SEEDBYTES 32U")]
         public const uint crypto_box_curve25519xsalsa20poly1305_SEEDBYTES = 32U;
@@ -826,7 +720,7 @@ namespace unity.libsodium
         [NativeTypeName("#define crypto_box_curve25519xsalsa20poly1305_BOXZEROBYTES 16U")]
         public const uint crypto_box_curve25519xsalsa20poly1305_BOXZEROBYTES = 16U;
 
-        [NativeTypeName("#define crypto_box_curve25519xsalsa20poly1305_ZEROBYTES (crypto_box_curve25519xsalsa20poly1305_BOXZEROBYTES + \\\r\n     crypto_box_curve25519xsalsa20poly1305_MACBYTES)")]
+        [NativeTypeName("#define crypto_box_curve25519xsalsa20poly1305_ZEROBYTES (crypto_box_curve25519xsalsa20poly1305_BOXZEROBYTES + \\\n     crypto_box_curve25519xsalsa20poly1305_MACBYTES)")]
         public const uint crypto_box_curve25519xsalsa20poly1305_ZEROBYTES = (16U + 16U);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -853,49 +747,43 @@ namespace unity.libsodium
         public static extern int crypto_core_ed25519_is_valid_point([NativeTypeName("const unsigned char *")] byte[] p);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ed25519_add([NativeTypeName("unsigned char *")] byte[] r, [NativeTypeName("const unsigned char *")] byte[] p, [NativeTypeName("const unsigned char *")] byte[] q);
+        public static extern int crypto_core_ed25519_add([NativeTypeName("unsigned char *")] byte* r, [NativeTypeName("const unsigned char *")] byte[] p, [NativeTypeName("const unsigned char *")] byte[] q);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ed25519_sub([NativeTypeName("unsigned char *")] byte[] r, [NativeTypeName("const unsigned char *")] byte[] p, [NativeTypeName("const unsigned char *")] byte[] q);
+        public static extern int crypto_core_ed25519_sub([NativeTypeName("unsigned char *")] byte* r, [NativeTypeName("const unsigned char *")] byte[] p, [NativeTypeName("const unsigned char *")] byte[] q);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ed25519_from_uniform([NativeTypeName("unsigned char *")] byte[] p, [NativeTypeName("const unsigned char *")] byte[] r);
+        public static extern int crypto_core_ed25519_from_uniform([NativeTypeName("unsigned char *")] byte* p, [NativeTypeName("const unsigned char *")] byte[] r);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ed25519_from_string([NativeTypeName("unsigned char [32]")] byte* p, [NativeTypeName("const char *")] sbyte* ctx, [NativeTypeName("const unsigned char *")] byte[] msg, [NativeTypeName("size_t")] UIntPtr msg_len, int hash_alg);
+        public static extern int crypto_core_ed25519_from_hash([NativeTypeName("unsigned char *")] byte* p, [NativeTypeName("const unsigned char *")] byte[] h);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ed25519_from_string_ro([NativeTypeName("unsigned char [32]")] byte* p, [NativeTypeName("const char *")] sbyte* ctx, [NativeTypeName("const unsigned char *")] byte[] msg, [NativeTypeName("size_t")] UIntPtr msg_len, int hash_alg);
+        public static extern void crypto_core_ed25519_random([NativeTypeName("unsigned char *")] byte* p);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ed25519_random([NativeTypeName("unsigned char *")] byte[] p);
+        public static extern void crypto_core_ed25519_scalar_random([NativeTypeName("unsigned char *")] byte* r);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ed25519_scalar_random([NativeTypeName("unsigned char *")] byte[] r);
+        public static extern int crypto_core_ed25519_scalar_invert([NativeTypeName("unsigned char *")] byte* recip, [NativeTypeName("const unsigned char *")] byte[] s);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ed25519_scalar_invert([NativeTypeName("unsigned char *")] byte[] recip, [NativeTypeName("const unsigned char *")] byte[] s);
+        public static extern void crypto_core_ed25519_scalar_negate([NativeTypeName("unsigned char *")] byte* neg, [NativeTypeName("const unsigned char *")] byte[] s);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ed25519_scalar_negate([NativeTypeName("unsigned char *")] byte[] neg, [NativeTypeName("const unsigned char *")] byte[] s);
+        public static extern void crypto_core_ed25519_scalar_complement([NativeTypeName("unsigned char *")] byte* comp, [NativeTypeName("const unsigned char *")] byte[] s);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ed25519_scalar_complement([NativeTypeName("unsigned char *")] byte[] comp, [NativeTypeName("const unsigned char *")] byte[] s);
+        public static extern void crypto_core_ed25519_scalar_add([NativeTypeName("unsigned char *")] byte* z, [NativeTypeName("const unsigned char *")] byte[] x, [NativeTypeName("const unsigned char *")] byte[] y);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ed25519_scalar_add([NativeTypeName("unsigned char *")] byte[] z, [NativeTypeName("const unsigned char *")] byte[] x, [NativeTypeName("const unsigned char *")] byte[] y);
+        public static extern void crypto_core_ed25519_scalar_sub([NativeTypeName("unsigned char *")] byte* z, [NativeTypeName("const unsigned char *")] byte[] x, [NativeTypeName("const unsigned char *")] byte[] y);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ed25519_scalar_sub([NativeTypeName("unsigned char *")] byte[] z, [NativeTypeName("const unsigned char *")] byte[] x, [NativeTypeName("const unsigned char *")] byte[] y);
+        public static extern void crypto_core_ed25519_scalar_mul([NativeTypeName("unsigned char *")] byte* z, [NativeTypeName("const unsigned char *")] byte[] x, [NativeTypeName("const unsigned char *")] byte[] y);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ed25519_scalar_mul([NativeTypeName("unsigned char *")] byte[] z, [NativeTypeName("const unsigned char *")] byte[] x, [NativeTypeName("const unsigned char *")] byte[] y);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ed25519_scalar_reduce([NativeTypeName("unsigned char *")] byte[] r, [NativeTypeName("const unsigned char *")] byte[] s);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ed25519_scalar_is_canonical([NativeTypeName("const unsigned char *")] byte[] s);
+        public static extern void crypto_core_ed25519_scalar_reduce([NativeTypeName("unsigned char *")] byte* r, [NativeTypeName("const unsigned char *")] byte[] s);
 
         [NativeTypeName("#define crypto_core_ed25519_BYTES 32")]
         public const int crypto_core_ed25519_BYTES = 32;
@@ -911,12 +799,6 @@ namespace unity.libsodium
 
         [NativeTypeName("#define crypto_core_ed25519_NONREDUCEDSCALARBYTES 64")]
         public const int crypto_core_ed25519_NONREDUCEDSCALARBYTES = 64;
-
-        [NativeTypeName("#define crypto_core_ed25519_H2CSHA256 1")]
-        public const int crypto_core_ed25519_H2CSHA256 = 1;
-
-        [NativeTypeName("#define crypto_core_ed25519_H2CSHA512 2")]
-        public const int crypto_core_ed25519_H2CSHA512 = 2;
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
@@ -1000,49 +882,40 @@ namespace unity.libsodium
         public static extern int crypto_core_ristretto255_is_valid_point([NativeTypeName("const unsigned char *")] byte[] p);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ristretto255_add([NativeTypeName("unsigned char *")] byte[] r, [NativeTypeName("const unsigned char *")] byte[] p, [NativeTypeName("const unsigned char *")] byte[] q);
+        public static extern int crypto_core_ristretto255_add([NativeTypeName("unsigned char *")] byte* r, [NativeTypeName("const unsigned char *")] byte[] p, [NativeTypeName("const unsigned char *")] byte[] q);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ristretto255_sub([NativeTypeName("unsigned char *")] byte[] r, [NativeTypeName("const unsigned char *")] byte[] p, [NativeTypeName("const unsigned char *")] byte[] q);
+        public static extern int crypto_core_ristretto255_sub([NativeTypeName("unsigned char *")] byte* r, [NativeTypeName("const unsigned char *")] byte[] p, [NativeTypeName("const unsigned char *")] byte[] q);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ristretto255_from_hash([NativeTypeName("unsigned char *")] byte[] p, [NativeTypeName("const unsigned char *")] byte[] r);
+        public static extern int crypto_core_ristretto255_from_hash([NativeTypeName("unsigned char *")] byte* p, [NativeTypeName("const unsigned char *")] byte[] r);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ristretto255_from_string([NativeTypeName("unsigned char [32]")] byte* p, [NativeTypeName("const char *")] sbyte* ctx, [NativeTypeName("const unsigned char *")] byte[] msg, [NativeTypeName("size_t")] UIntPtr msg_len, int hash_alg);
+        public static extern void crypto_core_ristretto255_random([NativeTypeName("unsigned char *")] byte* p);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ristretto255_from_string_ro([NativeTypeName("unsigned char [32]")] byte* p, [NativeTypeName("const char *")] sbyte* ctx, [NativeTypeName("const unsigned char *")] byte[] msg, [NativeTypeName("size_t")] UIntPtr msg_len, int hash_alg);
+        public static extern void crypto_core_ristretto255_scalar_random([NativeTypeName("unsigned char *")] byte* r);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ristretto255_random([NativeTypeName("unsigned char *")] byte[] p);
+        public static extern int crypto_core_ristretto255_scalar_invert([NativeTypeName("unsigned char *")] byte* recip, [NativeTypeName("const unsigned char *")] byte[] s);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ristretto255_scalar_random([NativeTypeName("unsigned char *")] byte[] r);
+        public static extern void crypto_core_ristretto255_scalar_negate([NativeTypeName("unsigned char *")] byte* neg, [NativeTypeName("const unsigned char *")] byte[] s);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ristretto255_scalar_invert([NativeTypeName("unsigned char *")] byte[] recip, [NativeTypeName("const unsigned char *")] byte[] s);
+        public static extern void crypto_core_ristretto255_scalar_complement([NativeTypeName("unsigned char *")] byte* comp, [NativeTypeName("const unsigned char *")] byte[] s);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ristretto255_scalar_negate([NativeTypeName("unsigned char *")] byte[] neg, [NativeTypeName("const unsigned char *")] byte[] s);
+        public static extern void crypto_core_ristretto255_scalar_add([NativeTypeName("unsigned char *")] byte* z, [NativeTypeName("const unsigned char *")] byte[] x, [NativeTypeName("const unsigned char *")] byte[] y);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ristretto255_scalar_complement([NativeTypeName("unsigned char *")] byte[] comp, [NativeTypeName("const unsigned char *")] byte[] s);
+        public static extern void crypto_core_ristretto255_scalar_sub([NativeTypeName("unsigned char *")] byte* z, [NativeTypeName("const unsigned char *")] byte[] x, [NativeTypeName("const unsigned char *")] byte[] y);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ristretto255_scalar_add([NativeTypeName("unsigned char *")] byte[] z, [NativeTypeName("const unsigned char *")] byte[] x, [NativeTypeName("const unsigned char *")] byte[] y);
+        public static extern void crypto_core_ristretto255_scalar_mul([NativeTypeName("unsigned char *")] byte* z, [NativeTypeName("const unsigned char *")] byte[] x, [NativeTypeName("const unsigned char *")] byte[] y);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ristretto255_scalar_sub([NativeTypeName("unsigned char *")] byte[] z, [NativeTypeName("const unsigned char *")] byte[] x, [NativeTypeName("const unsigned char *")] byte[] y);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ristretto255_scalar_mul([NativeTypeName("unsigned char *")] byte[] z, [NativeTypeName("const unsigned char *")] byte[] x, [NativeTypeName("const unsigned char *")] byte[] y);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_core_ristretto255_scalar_reduce([NativeTypeName("unsigned char *")] byte[] r, [NativeTypeName("const unsigned char *")] byte[] s);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_core_ristretto255_scalar_is_canonical([NativeTypeName("const unsigned char *")] byte[] s);
+        public static extern void crypto_core_ristretto255_scalar_reduce([NativeTypeName("unsigned char *")] byte* r, [NativeTypeName("const unsigned char *")] byte[] s);
 
         [NativeTypeName("#define crypto_core_ristretto255_BYTES 32")]
         public const int crypto_core_ristretto255_BYTES = 32;
@@ -1055,12 +928,6 @@ namespace unity.libsodium
 
         [NativeTypeName("#define crypto_core_ristretto255_NONREDUCEDSCALARBYTES 64")]
         public const int crypto_core_ristretto255_NONREDUCEDSCALARBYTES = 64;
-
-        [NativeTypeName("#define crypto_core_ristretto255_H2CSHA256 1")]
-        public const int crypto_core_ristretto255_H2CSHA256 = 1;
-
-        [NativeTypeName("#define crypto_core_ristretto255_H2CSHA512 2")]
-        public const int crypto_core_ristretto255_H2CSHA512 = 2;
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
@@ -1191,13 +1058,13 @@ namespace unity.libsodium
         public static extern int crypto_generichash([NativeTypeName("unsigned char *")] byte* @out, [NativeTypeName("size_t")] UIntPtr outlen, [NativeTypeName("const unsigned char *")] byte[] @in, [NativeTypeName("unsigned long long")] ulong inlen, [NativeTypeName("const unsigned char *")] byte[] key, [NativeTypeName("size_t")] UIntPtr keylen);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_generichash_init([NativeTypeName("crypto_generichash_state *")] crypto_generichash_blake2b_state* state, [NativeTypeName("const unsigned char *")] byte[] key, [NativeTypeName("const size_t")] UIntPtr keylen, [NativeTypeName("const size_t")] UIntPtr outlen);
+        public static extern int crypto_generichash_init([NativeTypeName("crypto_generichash_state *")] crypto_generichash_blake2b_state* state, [NativeTypeName("const unsigned char *")] byte[] key, [NativeTypeName("const size_t")] int keylen, [NativeTypeName("const size_t")] int outlen);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int crypto_generichash_update([NativeTypeName("crypto_generichash_state *")] crypto_generichash_blake2b_state* state, [NativeTypeName("const unsigned char *")] byte[] @in, [NativeTypeName("unsigned long long")] ulong inlen);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_generichash_final([NativeTypeName("crypto_generichash_state *")] crypto_generichash_blake2b_state* state, [NativeTypeName("unsigned char *")] byte* @out, [NativeTypeName("const size_t")] UIntPtr outlen);
+        public static extern int crypto_generichash_final([NativeTypeName("crypto_generichash_state *")] crypto_generichash_blake2b_state* state, [NativeTypeName("unsigned char *")] byte* @out, [NativeTypeName("const size_t")] int outlen);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_generichash_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -1266,16 +1133,16 @@ namespace unity.libsodium
         public static extern int crypto_generichash_blake2b_salt_personal([NativeTypeName("unsigned char *")] byte* @out, [NativeTypeName("size_t")] UIntPtr outlen, [NativeTypeName("const unsigned char *")] byte[] @in, [NativeTypeName("unsigned long long")] ulong inlen, [NativeTypeName("const unsigned char *")] byte[] key, [NativeTypeName("size_t")] UIntPtr keylen, [NativeTypeName("const unsigned char *")] byte[] salt, [NativeTypeName("const unsigned char *")] byte[] personal);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_generichash_blake2b_init(crypto_generichash_blake2b_state* state, [NativeTypeName("const unsigned char *")] byte[] key, [NativeTypeName("const size_t")] UIntPtr keylen, [NativeTypeName("const size_t")] UIntPtr outlen);
+        public static extern int crypto_generichash_blake2b_init(crypto_generichash_blake2b_state* state, [NativeTypeName("const unsigned char *")] byte[] key, [NativeTypeName("const size_t")] int keylen, [NativeTypeName("const size_t")] int outlen);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_generichash_blake2b_init_salt_personal(crypto_generichash_blake2b_state* state, [NativeTypeName("const unsigned char *")] byte[] key, [NativeTypeName("const size_t")] UIntPtr keylen, [NativeTypeName("const size_t")] UIntPtr outlen, [NativeTypeName("const unsigned char *")] byte[] salt, [NativeTypeName("const unsigned char *")] byte[] personal);
+        public static extern int crypto_generichash_blake2b_init_salt_personal(crypto_generichash_blake2b_state* state, [NativeTypeName("const unsigned char *")] byte[] key, [NativeTypeName("const size_t")] int keylen, [NativeTypeName("const size_t")] int outlen, [NativeTypeName("const unsigned char *")] byte[] salt, [NativeTypeName("const unsigned char *")] byte[] personal);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int crypto_generichash_blake2b_update(crypto_generichash_blake2b_state* state, [NativeTypeName("const unsigned char *")] byte[] @in, [NativeTypeName("unsigned long long")] ulong inlen);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_generichash_blake2b_final(crypto_generichash_blake2b_state* state, [NativeTypeName("unsigned char *")] byte* @out, [NativeTypeName("const size_t")] UIntPtr outlen);
+        public static extern int crypto_generichash_blake2b_final(crypto_generichash_blake2b_state* state, [NativeTypeName("unsigned char *")] byte* @out, [NativeTypeName("const size_t")] int outlen);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_generichash_blake2b_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -1388,7 +1255,7 @@ namespace unity.libsodium
         public static extern sbyte* crypto_kdf_primitive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_kdf_derive_from_key([NativeTypeName("unsigned char *")] byte[] subkey, [NativeTypeName("size_t")] UIntPtr subkey_len, [NativeTypeName("uint64_t")] ulong subkey_id, [NativeTypeName("const char [8]")] sbyte* ctx, [NativeTypeName("const unsigned char [32]")] byte[] key);
+        public static extern int crypto_kdf_derive_from_key([NativeTypeName("unsigned char *")] byte* subkey, [NativeTypeName("size_t")] UIntPtr subkey_len, [NativeTypeName("uint64_t")] ulong subkey_id, [NativeTypeName("const char [8]")] sbyte* ctx, [NativeTypeName("const unsigned char [32]")] byte* key);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_kdf_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -1408,6 +1275,18 @@ namespace unity.libsodium
         [NativeTypeName("#define crypto_kdf_PRIMITIVE \"blake2b\"")]
         public static byte[] crypto_kdf_PRIMITIVE => new byte[] { 0x62, 0x6C, 0x61, 0x6B, 0x65, 0x32, 0x62, 0x00 };
 
+        [NativeTypeName("#define crypto_kdf_blake2b_BYTES_MIN 16")]
+        public const int crypto_kdf_blake2b_BYTES_MIN = 16;
+
+        [NativeTypeName("#define crypto_kdf_blake2b_BYTES_MAX 64")]
+        public const int crypto_kdf_blake2b_BYTES_MAX = 64;
+
+        [NativeTypeName("#define crypto_kdf_blake2b_CONTEXTBYTES 8")]
+        public const int crypto_kdf_blake2b_CONTEXTBYTES = 8;
+
+        [NativeTypeName("#define crypto_kdf_blake2b_KEYBYTES 32")]
+        public const int crypto_kdf_blake2b_KEYBYTES = 32;
+
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
         public static extern UIntPtr crypto_kdf_blake2b_bytes_min();
@@ -1425,79 +1304,7 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_kdf_blake2b_keybytes();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_kdf_blake2b_derive_from_key([NativeTypeName("unsigned char *")] byte[] subkey, [NativeTypeName("size_t")] UIntPtr subkey_len, [NativeTypeName("uint64_t")] ulong subkey_id, [NativeTypeName("const char [8]")] sbyte* ctx, [NativeTypeName("const unsigned char [32]")] byte[] key);
-
-        [NativeTypeName("#define crypto_kdf_blake2b_BYTES_MIN 16")]
-        public const int crypto_kdf_blake2b_BYTES_MIN = 16;
-
-        [NativeTypeName("#define crypto_kdf_blake2b_BYTES_MAX 64")]
-        public const int crypto_kdf_blake2b_BYTES_MAX = 64;
-
-        [NativeTypeName("#define crypto_kdf_blake2b_CONTEXTBYTES 8")]
-        public const int crypto_kdf_blake2b_CONTEXTBYTES = 8;
-
-        [NativeTypeName("#define crypto_kdf_blake2b_KEYBYTES 32")]
-        public const int crypto_kdf_blake2b_KEYBYTES = 32;
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_kdf_hkdf_sha256_keybytes();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_kdf_hkdf_sha256_bytes_min();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_kdf_hkdf_sha256_bytes_max();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_kdf_hkdf_sha256_extract([NativeTypeName("unsigned char [32]")] byte* prk, [NativeTypeName("const unsigned char *")] byte[] salt, [NativeTypeName("size_t")] UIntPtr salt_len, [NativeTypeName("const unsigned char *")] byte[] ikm, [NativeTypeName("size_t")] UIntPtr ikm_len);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_kdf_hkdf_sha256_keygen([NativeTypeName("unsigned char [32]")] byte* prk);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_kdf_hkdf_sha256_expand([NativeTypeName("unsigned char *")] byte* @out, [NativeTypeName("size_t")] UIntPtr out_len, [NativeTypeName("const char *")] sbyte* ctx, [NativeTypeName("size_t")] UIntPtr ctx_len, [NativeTypeName("const unsigned char [32]")] byte[] prk);
-
-        [NativeTypeName("#define crypto_kdf_hkdf_sha256_KEYBYTES crypto_auth_hmacsha256_BYTES")]
-        public const uint crypto_kdf_hkdf_sha256_KEYBYTES = 32U;
-
-        [NativeTypeName("#define crypto_kdf_hkdf_sha256_BYTES_MIN 0U")]
-        public const uint crypto_kdf_hkdf_sha256_BYTES_MIN = 0U;
-
-        [NativeTypeName("#define crypto_kdf_hkdf_sha256_BYTES_MAX (0xff * crypto_auth_hmacsha256_BYTES)")]
-        public const uint crypto_kdf_hkdf_sha256_BYTES_MAX = (0xff * 32U);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_kdf_hkdf_sha512_keybytes();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_kdf_hkdf_sha512_bytes_min();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("size_t")]
-        public static extern UIntPtr crypto_kdf_hkdf_sha512_bytes_max();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_kdf_hkdf_sha512_extract([NativeTypeName("unsigned char [64]")] byte* prk, [NativeTypeName("const unsigned char *")] byte[] salt, [NativeTypeName("size_t")] UIntPtr salt_len, [NativeTypeName("const unsigned char *")] byte[] ikm, [NativeTypeName("size_t")] UIntPtr ikm_len);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void crypto_kdf_hkdf_sha512_keygen([NativeTypeName("unsigned char [64]")] byte* prk);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_kdf_hkdf_sha512_expand([NativeTypeName("unsigned char *")] byte* @out, [NativeTypeName("size_t")] UIntPtr out_len, [NativeTypeName("const char *")] sbyte* ctx, [NativeTypeName("size_t")] UIntPtr ctx_len, [NativeTypeName("const unsigned char [64]")] byte* prk);
-
-        [NativeTypeName("#define crypto_kdf_hkdf_sha512_KEYBYTES crypto_auth_hmacsha512_BYTES")]
-        public const uint crypto_kdf_hkdf_sha512_KEYBYTES = 64U;
-
-        [NativeTypeName("#define crypto_kdf_hkdf_sha512_BYTES_MIN 0U")]
-        public const uint crypto_kdf_hkdf_sha512_BYTES_MIN = 0U;
-
-        [NativeTypeName("#define crypto_kdf_hkdf_sha512_BYTES_MAX (0xff * crypto_auth_hmacsha512_BYTES)")]
-        public const uint crypto_kdf_hkdf_sha512_BYTES_MAX = (0xff * 64U);
+        public static extern int crypto_kdf_blake2b_derive_from_key([NativeTypeName("unsigned char *")] byte* subkey, [NativeTypeName("size_t")] UIntPtr subkey_len, [NativeTypeName("uint64_t")] ulong subkey_id, [NativeTypeName("const char [8]")] sbyte* ctx, [NativeTypeName("const unsigned char [32]")] byte* key);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
@@ -1520,16 +1327,16 @@ namespace unity.libsodium
         public static extern sbyte* crypto_kx_primitive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_kx_seed_keypair([NativeTypeName("unsigned char [32]")] byte* pk, [NativeTypeName("unsigned char [32]")] byte* sk, [NativeTypeName("const unsigned char [32]")] byte[] seed);
+        public static extern int crypto_kx_seed_keypair([NativeTypeName("unsigned char [32]")] byte* pk, [NativeTypeName("unsigned char [32]")] byte* sk, [NativeTypeName("const unsigned char [32]")] byte* seed);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int crypto_kx_keypair([NativeTypeName("unsigned char [32]")] byte* pk, [NativeTypeName("unsigned char [32]")] byte* sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_kx_client_session_keys([NativeTypeName("unsigned char [32]")] byte* rx, [NativeTypeName("unsigned char [32]")] byte* tx, [NativeTypeName("const unsigned char [32]")] byte[] client_pk, [NativeTypeName("const unsigned char [32]")] byte[] client_sk, [NativeTypeName("const unsigned char [32]")] byte[] server_pk);
+        public static extern int crypto_kx_client_session_keys([NativeTypeName("unsigned char [32]")] byte* rx, [NativeTypeName("unsigned char [32]")] byte* tx, [NativeTypeName("const unsigned char [32]")] byte* client_pk, [NativeTypeName("const unsigned char [32]")] byte* client_sk, [NativeTypeName("const unsigned char [32]")] byte* server_pk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_kx_server_session_keys([NativeTypeName("unsigned char [32]")] byte* rx, [NativeTypeName("unsigned char [32]")] byte* tx, [NativeTypeName("const unsigned char [32]")] byte[] server_pk, [NativeTypeName("const unsigned char [32]")] byte[] server_sk, [NativeTypeName("const unsigned char [32]")] byte[] client_pk);
+        public static extern int crypto_kx_server_session_keys([NativeTypeName("unsigned char [32]")] byte* rx, [NativeTypeName("unsigned char [32]")] byte* tx, [NativeTypeName("const unsigned char [32]")] byte* server_pk, [NativeTypeName("const unsigned char [32]")] byte* server_sk, [NativeTypeName("const unsigned char [32]")] byte* client_pk);
 
         [NativeTypeName("#define crypto_kx_PUBLICKEYBYTES 32")]
         public const int crypto_kx_PUBLICKEYBYTES = 32;
@@ -1663,12 +1470,12 @@ namespace unity.libsodium
         public static extern sbyte* crypto_pwhash_strprefix();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_opslimit_min();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_opslimit_min();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_opslimit_max();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_opslimit_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
@@ -1679,24 +1486,24 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_pwhash_memlimit_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_opslimit_interactive();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_opslimit_interactive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
         public static extern UIntPtr crypto_pwhash_memlimit_interactive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_opslimit_moderate();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_opslimit_moderate();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
         public static extern UIntPtr crypto_pwhash_memlimit_moderate();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_opslimit_sensitive();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_opslimit_sensitive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
@@ -1816,12 +1623,12 @@ namespace unity.libsodium
         public static extern sbyte* crypto_pwhash_argon2i_strprefix();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_argon2i_opslimit_min();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_argon2i_opslimit_min();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_argon2i_opslimit_max();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_argon2i_opslimit_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
@@ -1832,24 +1639,24 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_pwhash_argon2i_memlimit_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_argon2i_opslimit_interactive();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_argon2i_opslimit_interactive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
         public static extern UIntPtr crypto_pwhash_argon2i_memlimit_interactive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_argon2i_opslimit_moderate();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_argon2i_opslimit_moderate();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
         public static extern UIntPtr crypto_pwhash_argon2i_memlimit_moderate();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_argon2i_opslimit_sensitive();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_argon2i_opslimit_sensitive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
@@ -1953,12 +1760,12 @@ namespace unity.libsodium
         public static extern sbyte* crypto_pwhash_argon2id_strprefix();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_argon2id_opslimit_min();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_argon2id_opslimit_min();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_argon2id_opslimit_max();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_argon2id_opslimit_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
@@ -1969,24 +1776,24 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_pwhash_argon2id_memlimit_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_argon2id_opslimit_interactive();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_argon2id_opslimit_interactive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
         public static extern UIntPtr crypto_pwhash_argon2id_memlimit_interactive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_argon2id_opslimit_moderate();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_argon2id_opslimit_moderate();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
         public static extern UIntPtr crypto_pwhash_argon2id_memlimit_moderate();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_argon2id_opslimit_sensitive();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_argon2id_opslimit_sensitive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
@@ -2087,12 +1894,12 @@ namespace unity.libsodium
         public static extern sbyte* crypto_pwhash_scryptsalsa208sha256_strprefix();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_scryptsalsa208sha256_opslimit_min();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_scryptsalsa208sha256_opslimit_min();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_scryptsalsa208sha256_opslimit_max();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_scryptsalsa208sha256_opslimit_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
@@ -2103,16 +1910,16 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_pwhash_scryptsalsa208sha256_memlimit_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_scryptsalsa208sha256_opslimit_interactive();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_scryptsalsa208sha256_opslimit_interactive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
         public static extern UIntPtr crypto_pwhash_scryptsalsa208sha256_memlimit_interactive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("unsigned long long")]
-        public static extern ulong crypto_pwhash_scryptsalsa208sha256_opslimit_sensitive();
+        [return: NativeTypeName("size_t")]
+        public static extern UIntPtr crypto_pwhash_scryptsalsa208sha256_opslimit_sensitive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
@@ -2191,10 +1998,10 @@ namespace unity.libsodium
         public static extern sbyte* crypto_scalarmult_primitive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_scalarmult_base([NativeTypeName("unsigned char *")] byte[] q, [NativeTypeName("const unsigned char *")] byte[] n);
+        public static extern int crypto_scalarmult_base([NativeTypeName("unsigned char *")] byte* q, [NativeTypeName("const unsigned char *")] byte[] n);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_scalarmult([NativeTypeName("unsigned char *")] byte[] q, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] p);
+        public static extern int crypto_scalarmult([NativeTypeName("unsigned char *")] byte* q, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] p);
 
         [NativeTypeName("#define crypto_scalarmult_BYTES crypto_scalarmult_curve25519_BYTES")]
         public const uint crypto_scalarmult_BYTES = 32U;
@@ -2214,10 +2021,10 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_scalarmult_curve25519_scalarbytes();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_scalarmult_curve25519([NativeTypeName("unsigned char *")] byte[] q, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] p);
+        public static extern int crypto_scalarmult_curve25519([NativeTypeName("unsigned char *")] byte* q, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] p);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_scalarmult_curve25519_base([NativeTypeName("unsigned char *")] byte[] q, [NativeTypeName("const unsigned char *")] byte[] n);
+        public static extern int crypto_scalarmult_curve25519_base([NativeTypeName("unsigned char *")] byte* q, [NativeTypeName("const unsigned char *")] byte[] n);
 
         [NativeTypeName("#define crypto_scalarmult_curve25519_BYTES 32U")]
         public const uint crypto_scalarmult_curve25519_BYTES = 32U;
@@ -2234,16 +2041,16 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_scalarmult_ed25519_scalarbytes();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_scalarmult_ed25519([NativeTypeName("unsigned char *")] byte[] q, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] p);
+        public static extern int crypto_scalarmult_ed25519([NativeTypeName("unsigned char *")] byte* q, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] p);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_scalarmult_ed25519_noclamp([NativeTypeName("unsigned char *")] byte[] q, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] p);
+        public static extern int crypto_scalarmult_ed25519_noclamp([NativeTypeName("unsigned char *")] byte* q, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] p);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_scalarmult_ed25519_base([NativeTypeName("unsigned char *")] byte[] q, [NativeTypeName("const unsigned char *")] byte[] n);
+        public static extern int crypto_scalarmult_ed25519_base([NativeTypeName("unsigned char *")] byte* q, [NativeTypeName("const unsigned char *")] byte[] n);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_scalarmult_ed25519_base_noclamp([NativeTypeName("unsigned char *")] byte[] q, [NativeTypeName("const unsigned char *")] byte[] n);
+        public static extern int crypto_scalarmult_ed25519_base_noclamp([NativeTypeName("unsigned char *")] byte* q, [NativeTypeName("const unsigned char *")] byte[] n);
 
         [NativeTypeName("#define crypto_scalarmult_ed25519_BYTES 32U")]
         public const uint crypto_scalarmult_ed25519_BYTES = 32U;
@@ -2260,10 +2067,10 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_scalarmult_ristretto255_scalarbytes();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_scalarmult_ristretto255([NativeTypeName("unsigned char *")] byte[] q, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] p);
+        public static extern int crypto_scalarmult_ristretto255([NativeTypeName("unsigned char *")] byte* q, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] p);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_scalarmult_ristretto255_base([NativeTypeName("unsigned char *")] byte[] q, [NativeTypeName("const unsigned char *")] byte[] n);
+        public static extern int crypto_scalarmult_ristretto255_base([NativeTypeName("unsigned char *")] byte* q, [NativeTypeName("const unsigned char *")] byte[] n);
 
         [NativeTypeName("#define crypto_scalarmult_ristretto255_BYTES 32U")]
         public const uint crypto_scalarmult_ristretto255_BYTES = 32U;
@@ -2292,16 +2099,16 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_secretbox_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretbox_easy([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_secretbox_easy([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretbox_open_easy([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_secretbox_open_easy([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretbox_detached([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_secretbox_detached([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned char *")] byte* mac, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretbox_open_detached([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_secretbox_open_detached([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_secretbox_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -2315,10 +2122,10 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_secretbox_boxzerobytes();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretbox([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_secretbox([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretbox_open([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_secretbox_open([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [NativeTypeName("#define crypto_secretbox_KEYBYTES crypto_secretbox_xsalsa20poly1305_KEYBYTES")]
         public const uint crypto_secretbox_KEYBYTES = 32U;
@@ -2358,16 +2165,16 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_secretbox_xchacha20poly1305_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretbox_xchacha20poly1305_easy([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_secretbox_xchacha20poly1305_easy([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretbox_xchacha20poly1305_open_easy([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_secretbox_xchacha20poly1305_open_easy([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretbox_xchacha20poly1305_detached([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned char *")] byte[] mac, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_secretbox_xchacha20poly1305_detached([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned char *")] byte* mac, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretbox_xchacha20poly1305_open_detached([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_secretbox_xchacha20poly1305_open_detached([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] mac, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [NativeTypeName("#define crypto_secretbox_xchacha20poly1305_KEYBYTES 32U")]
         public const uint crypto_secretbox_xchacha20poly1305_KEYBYTES = 32U;
@@ -2398,6 +2205,12 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_secretbox_xsalsa20poly1305_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int crypto_secretbox_xsalsa20poly1305([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+
+        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int crypto_secretbox_xsalsa20poly1305_open([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+
+        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_secretbox_xsalsa20poly1305_keygen([NativeTypeName("unsigned char [32]")] byte* k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -2407,12 +2220,6 @@ namespace unity.libsodium
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
         public static extern UIntPtr crypto_secretbox_xsalsa20poly1305_zerobytes();
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretbox_xsalsa20poly1305([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretbox_xsalsa20poly1305_open([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [NativeTypeName("#define crypto_secretbox_xsalsa20poly1305_KEYBYTES 32U")]
         public const uint crypto_secretbox_xsalsa20poly1305_KEYBYTES = 32U;
@@ -2429,7 +2236,7 @@ namespace unity.libsodium
         [NativeTypeName("#define crypto_secretbox_xsalsa20poly1305_BOXZEROBYTES 16U")]
         public const uint crypto_secretbox_xsalsa20poly1305_BOXZEROBYTES = 16U;
 
-        [NativeTypeName("#define crypto_secretbox_xsalsa20poly1305_ZEROBYTES (crypto_secretbox_xsalsa20poly1305_BOXZEROBYTES + \\\r\n     crypto_secretbox_xsalsa20poly1305_MACBYTES)")]
+        [NativeTypeName("#define crypto_secretbox_xsalsa20poly1305_ZEROBYTES (crypto_secretbox_xsalsa20poly1305_BOXZEROBYTES + \\\n     crypto_secretbox_xsalsa20poly1305_MACBYTES)")]
         public const uint crypto_secretbox_xsalsa20poly1305_ZEROBYTES = (16U + 16U);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -2472,16 +2279,16 @@ namespace unity.libsodium
         public static extern void crypto_secretstream_xchacha20poly1305_keygen([NativeTypeName("unsigned char [32]")] byte* k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretstream_xchacha20poly1305_init_push(crypto_secretstream_xchacha20poly1305_state* state, [NativeTypeName("unsigned char [24]")] byte* header, [NativeTypeName("const unsigned char [32]")] byte[] k);
+        public static extern int crypto_secretstream_xchacha20poly1305_init_push(crypto_secretstream_xchacha20poly1305_state* state, [NativeTypeName("unsigned char [24]")] byte* header, [NativeTypeName("const unsigned char [32]")] byte* k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretstream_xchacha20poly1305_push(crypto_secretstream_xchacha20poly1305_state* state, [NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("unsigned char")] byte tag);
+        public static extern int crypto_secretstream_xchacha20poly1305_push(crypto_secretstream_xchacha20poly1305_state* state, [NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long *")] ulong* clen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen, [NativeTypeName("unsigned char")] byte tag);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretstream_xchacha20poly1305_init_pull(crypto_secretstream_xchacha20poly1305_state* state, [NativeTypeName("const unsigned char [24]")] byte* header, [NativeTypeName("const unsigned char [32]")] byte[] k);
+        public static extern int crypto_secretstream_xchacha20poly1305_init_pull(crypto_secretstream_xchacha20poly1305_state* state, [NativeTypeName("const unsigned char [24]")] byte* header, [NativeTypeName("const unsigned char [32]")] byte* k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_secretstream_xchacha20poly1305_pull(crypto_secretstream_xchacha20poly1305_state* state, [NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte[] tag_p, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen);
+        public static extern int crypto_secretstream_xchacha20poly1305_pull(crypto_secretstream_xchacha20poly1305_state* state, [NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("unsigned char *")] byte* tag_p, [NativeTypeName("const unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] ad, [NativeTypeName("unsigned long long")] ulong adlen);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_secretstream_xchacha20poly1305_rekey(crypto_secretstream_xchacha20poly1305_state* state);
@@ -2495,7 +2302,7 @@ namespace unity.libsodium
         [NativeTypeName("#define crypto_secretstream_xchacha20poly1305_KEYBYTES crypto_aead_xchacha20poly1305_ietf_KEYBYTES")]
         public const uint crypto_secretstream_xchacha20poly1305_KEYBYTES = 32U;
 
-        [NativeTypeName("#define crypto_secretstream_xchacha20poly1305_MESSAGEBYTES_MAX SODIUM_MIN(SODIUM_SIZE_MAX - crypto_secretstream_xchacha20poly1305_ABYTES, \\\r\n              (64ULL * ((1ULL << 32) - 2ULL)))")]
+        [NativeTypeName("#define crypto_secretstream_xchacha20poly1305_MESSAGEBYTES_MAX SODIUM_MIN(SODIUM_SIZE_MAX - crypto_secretstream_xchacha20poly1305_ABYTES, \\\n              (64ULL * ((1ULL << 32) - 2ULL)))")]
         public const ulong crypto_secretstream_xchacha20poly1305_MESSAGEBYTES_MAX = ((((0xffffffffffffffffUL) < (0xffffffffffffffffUL) ? (0xffffffffffffffffUL) : (0xffffffffffffffffUL)) - (1U + 16U)) < ((64UL * ((1UL << 32) - 2UL))) ? (((0xffffffffffffffffUL) < (0xffffffffffffffffUL) ? (0xffffffffffffffffUL) : (0xffffffffffffffffUL)) - (1U + 16U)) : ((64UL * ((1UL << 32) - 2UL))));
 
         [NativeTypeName("#define crypto_secretstream_xchacha20poly1305_TAG_MESSAGE 0x00")]
@@ -2507,7 +2314,7 @@ namespace unity.libsodium
         [NativeTypeName("#define crypto_secretstream_xchacha20poly1305_TAG_REKEY 0x02")]
         public const int crypto_secretstream_xchacha20poly1305_TAG_REKEY = 0x02;
 
-        [NativeTypeName("#define crypto_secretstream_xchacha20poly1305_TAG_FINAL (crypto_secretstream_xchacha20poly1305_TAG_PUSH | \\\r\n     crypto_secretstream_xchacha20poly1305_TAG_REKEY)")]
+        [NativeTypeName("#define crypto_secretstream_xchacha20poly1305_TAG_FINAL (crypto_secretstream_xchacha20poly1305_TAG_PUSH | \\\n     crypto_secretstream_xchacha20poly1305_TAG_REKEY)")]
         public const int crypto_secretstream_xchacha20poly1305_TAG_FINAL = (0x01 | 0x02);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -2600,19 +2407,19 @@ namespace unity.libsodium
         public static extern sbyte* crypto_sign_primitive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_seed_keypair([NativeTypeName("unsigned char *")] byte[] pk, [NativeTypeName("unsigned char *")] byte[] sk, [NativeTypeName("const unsigned char *")] byte[] seed);
+        public static extern int crypto_sign_seed_keypair([NativeTypeName("unsigned char *")] byte* pk, [NativeTypeName("unsigned char *")] byte* sk, [NativeTypeName("const unsigned char *")] byte[] seed);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_keypair([NativeTypeName("unsigned char *")] byte[] pk, [NativeTypeName("unsigned char *")] byte[] sk);
+        public static extern int crypto_sign_keypair([NativeTypeName("unsigned char *")] byte* pk, [NativeTypeName("unsigned char *")] byte* sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign([NativeTypeName("unsigned char *")] byte[] sm, [NativeTypeName("unsigned long long *")] ulong* smlen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_sign([NativeTypeName("unsigned char *")] byte* sm, [NativeTypeName("unsigned long long *")] ulong* smlen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_open([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("const unsigned char *")] byte[] sm, [NativeTypeName("unsigned long long")] ulong smlen, [NativeTypeName("const unsigned char *")] byte[] pk);
+        public static extern int crypto_sign_open([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("const unsigned char *")] byte[] sm, [NativeTypeName("unsigned long long")] ulong smlen, [NativeTypeName("const unsigned char *")] byte[] pk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_detached([NativeTypeName("unsigned char *")] byte[] sig, [NativeTypeName("unsigned long long *")] ulong* siglen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_sign_detached([NativeTypeName("unsigned char *")] byte* sig, [NativeTypeName("unsigned long long *")] ulong* siglen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int crypto_sign_verify_detached([NativeTypeName("const unsigned char *")] byte[] sig, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] pk);
@@ -2624,7 +2431,7 @@ namespace unity.libsodium
         public static extern int crypto_sign_update([NativeTypeName("crypto_sign_state *")] crypto_sign_ed25519ph_state* state, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_final_create([NativeTypeName("crypto_sign_state *")] crypto_sign_ed25519ph_state* state, [NativeTypeName("unsigned char *")] byte[] sig, [NativeTypeName("unsigned long long *")] ulong* siglen_p, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_sign_final_create([NativeTypeName("crypto_sign_state *")] crypto_sign_ed25519ph_state* state, [NativeTypeName("unsigned char *")] byte* sig, [NativeTypeName("unsigned long long *")] ulong* siglen_p, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int crypto_sign_final_verify([NativeTypeName("crypto_sign_state *")] crypto_sign_ed25519ph_state* state, [NativeTypeName("const unsigned char *")] byte[] sig, [NativeTypeName("const unsigned char *")] byte[] pk);
@@ -2672,34 +2479,34 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_sign_ed25519_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_ed25519([NativeTypeName("unsigned char *")] byte[] sm, [NativeTypeName("unsigned long long *")] ulong* smlen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_sign_ed25519([NativeTypeName("unsigned char *")] byte* sm, [NativeTypeName("unsigned long long *")] ulong* smlen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_ed25519_open([NativeTypeName("unsigned char *")] byte[] m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("const unsigned char *")] byte[] sm, [NativeTypeName("unsigned long long")] ulong smlen, [NativeTypeName("const unsigned char *")] byte[] pk);
+        public static extern int crypto_sign_ed25519_open([NativeTypeName("unsigned char *")] byte* m, [NativeTypeName("unsigned long long *")] ulong* mlen_p, [NativeTypeName("const unsigned char *")] byte[] sm, [NativeTypeName("unsigned long long")] ulong smlen, [NativeTypeName("const unsigned char *")] byte[] pk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_ed25519_detached([NativeTypeName("unsigned char *")] byte[] sig, [NativeTypeName("unsigned long long *")] ulong* siglen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_sign_ed25519_detached([NativeTypeName("unsigned char *")] byte* sig, [NativeTypeName("unsigned long long *")] ulong* siglen_p, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int crypto_sign_ed25519_verify_detached([NativeTypeName("const unsigned char *")] byte[] sig, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] pk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_ed25519_keypair([NativeTypeName("unsigned char *")] byte[] pk, [NativeTypeName("unsigned char *")] byte[] sk);
+        public static extern int crypto_sign_ed25519_keypair([NativeTypeName("unsigned char *")] byte* pk, [NativeTypeName("unsigned char *")] byte* sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_ed25519_seed_keypair([NativeTypeName("unsigned char *")] byte[] pk, [NativeTypeName("unsigned char *")] byte[] sk, [NativeTypeName("const unsigned char *")] byte[] seed);
+        public static extern int crypto_sign_ed25519_seed_keypair([NativeTypeName("unsigned char *")] byte* pk, [NativeTypeName("unsigned char *")] byte* sk, [NativeTypeName("const unsigned char *")] byte[] seed);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_ed25519_pk_to_curve25519([NativeTypeName("unsigned char *")] byte[] curve25519_pk, [NativeTypeName("const unsigned char *")] byte[] ed25519_pk);
+        public static extern int crypto_sign_ed25519_pk_to_curve25519([NativeTypeName("unsigned char *")] byte* curve25519_pk, [NativeTypeName("const unsigned char *")] byte[] ed25519_pk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_ed25519_sk_to_curve25519([NativeTypeName("unsigned char *")] byte[] curve25519_sk, [NativeTypeName("const unsigned char *")] byte[] ed25519_sk);
+        public static extern int crypto_sign_ed25519_sk_to_curve25519([NativeTypeName("unsigned char *")] byte* curve25519_sk, [NativeTypeName("const unsigned char *")] byte[] ed25519_sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_ed25519_sk_to_seed([NativeTypeName("unsigned char *")] byte[] seed, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_sign_ed25519_sk_to_seed([NativeTypeName("unsigned char *")] byte* seed, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_ed25519_sk_to_pk([NativeTypeName("unsigned char *")] byte[] pk, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_sign_ed25519_sk_to_pk([NativeTypeName("unsigned char *")] byte* pk, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int crypto_sign_ed25519ph_init(crypto_sign_ed25519ph_state* state);
@@ -2708,7 +2515,7 @@ namespace unity.libsodium
         public static extern int crypto_sign_ed25519ph_update(crypto_sign_ed25519ph_state* state, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_sign_ed25519ph_final_create(crypto_sign_ed25519ph_state* state, [NativeTypeName("unsigned char *")] byte[] sig, [NativeTypeName("unsigned long long *")] ulong* siglen_p, [NativeTypeName("const unsigned char *")] byte[] sk);
+        public static extern int crypto_sign_ed25519ph_final_create(crypto_sign_ed25519ph_state* state, [NativeTypeName("unsigned char *")] byte* sig, [NativeTypeName("unsigned long long *")] ulong* siglen_p, [NativeTypeName("const unsigned char *")] byte[] sk);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int crypto_sign_ed25519ph_final_verify(crypto_sign_ed25519ph_state* state, [NativeTypeName("const unsigned char *")] byte[] sig, [NativeTypeName("const unsigned char *")] byte[] pk);
@@ -2745,10 +2552,10 @@ namespace unity.libsodium
         public static extern sbyte* crypto_stream_primitive();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_xor([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_xor([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_stream_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -2778,13 +2585,13 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_stream_chacha20_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_chacha20([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_chacha20([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_chacha20_xor([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_chacha20_xor([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_chacha20_xor_ic([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("uint64_t")] ulong ic, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_chacha20_xor_ic([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("uint64_t")] ulong ic, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_stream_chacha20_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -2802,13 +2609,13 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_stream_chacha20_ietf_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_chacha20_ietf([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_chacha20_ietf([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_chacha20_ietf_xor([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_chacha20_ietf_xor([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_chacha20_ietf_xor_ic([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("uint32_t")] uint ic, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_chacha20_ietf_xor_ic([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("uint32_t")] uint ic, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_stream_chacha20_ietf_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -2853,13 +2660,13 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_stream_salsa20_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_salsa20([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_salsa20([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_salsa20_xor([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_salsa20_xor([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_salsa20_xor_ic([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("uint64_t")] ulong ic, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_salsa20_xor_ic([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("uint64_t")] ulong ic, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_stream_salsa20_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -2886,10 +2693,10 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_stream_salsa2012_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_salsa2012([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_salsa2012([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_salsa2012_xor([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_salsa2012_xor([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_stream_salsa2012_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -2916,10 +2723,10 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_stream_salsa208_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_salsa208([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_salsa208([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_salsa208_xor([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_salsa208_xor([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_stream_salsa208_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -2946,13 +2753,13 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_stream_xchacha20_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_xchacha20([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_xchacha20([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_xchacha20_xor([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_xchacha20_xor([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_xchacha20_xor_ic([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("uint64_t")] ulong ic, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_xchacha20_xor_ic([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("uint64_t")] ulong ic, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_stream_xchacha20_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -2979,13 +2786,13 @@ namespace unity.libsodium
         public static extern UIntPtr crypto_stream_xsalsa20_messagebytes_max();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_xsalsa20([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_xsalsa20([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("unsigned long long")] ulong clen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_xsalsa20_xor([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_xsalsa20_xor([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int crypto_stream_xsalsa20_xor_ic([NativeTypeName("unsigned char *")] byte[] c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("uint64_t")] ulong ic, [NativeTypeName("const unsigned char *")] byte[] k);
+        public static extern int crypto_stream_xsalsa20_xor_ic([NativeTypeName("unsigned char *")] byte* c, [NativeTypeName("const unsigned char *")] byte[] m, [NativeTypeName("unsigned long long")] ulong mlen, [NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("uint64_t")] ulong ic, [NativeTypeName("const unsigned char *")] byte[] k);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void crypto_stream_xsalsa20_keygen([NativeTypeName("unsigned char [32]")] byte* k);
@@ -3037,10 +2844,10 @@ namespace unity.libsodium
         public static extern UIntPtr randombytes_seedbytes();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void randombytes_buf([NativeTypeName("void *const")] void* buf, [NativeTypeName("const size_t")] UIntPtr size);
+        public static extern void randombytes_buf([NativeTypeName("void *const")] void* buf, [NativeTypeName("const size_t")] int size);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void randombytes_buf_deterministic([NativeTypeName("void *const")] void* buf, [NativeTypeName("const size_t")] UIntPtr size, [NativeTypeName("const unsigned char [32]")] byte[] seed);
+        public static extern void randombytes_buf_deterministic([NativeTypeName("void *const")] void* buf, [NativeTypeName("const size_t")] int size, [NativeTypeName("const unsigned char [32]")] byte* seed);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
@@ -3057,7 +2864,7 @@ namespace unity.libsodium
         public static extern int randombytes_close();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int randombytes_set_implementation([NativeTypeName("const randombytes_implementation *")] randombytes_implementation* impl);
+        public static extern int randombytes_set_implementation(randombytes_implementation* impl);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
@@ -3072,11 +2879,11 @@ namespace unity.libsodium
         [NativeTypeName("#define randombytes_SEEDBYTES 32U")]
         public const uint randombytes_SEEDBYTES = 32U;
 
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int sodium_runtime_has_neon();
+        // [NativeTypeName("#define randombytes_salsa20_implementation randombytes_internal_implementation")]
+        // public static readonly randombytes_implementation randombytes_salsa20_implementation = randombytes_internal_implementation;
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int sodium_runtime_has_armcrypto();
+        public static extern int sodium_runtime_has_neon();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int sodium_runtime_has_sse2();
@@ -3112,10 +2919,10 @@ namespace unity.libsodium
         public static extern int _sodium_runtime_get_cpu_features();
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void sodium_memzero([NativeTypeName("void *const")] void* pnt, [NativeTypeName("const size_t")] UIntPtr len);
+        public static extern void sodium_memzero([NativeTypeName("void *const")] void* pnt, [NativeTypeName("const size_t")] int len);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void sodium_stackzero([NativeTypeName("const size_t")] UIntPtr len);
+        public static extern void sodium_stackzero([NativeTypeName("const size_t")] int len);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int sodium_memcmp([NativeTypeName("const void *const")] void* b1_, [NativeTypeName("const void *const")] void* b2_, [NativeTypeName("size_t")] UIntPtr len);
@@ -3124,43 +2931,43 @@ namespace unity.libsodium
         public static extern int sodium_compare([NativeTypeName("const unsigned char *")] byte[] b1_, [NativeTypeName("const unsigned char *")] byte[] b2_, [NativeTypeName("size_t")] UIntPtr len);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int sodium_is_zero([NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const size_t")] UIntPtr nlen);
+        public static extern int sodium_is_zero([NativeTypeName("const unsigned char *")] byte[] n, [NativeTypeName("const size_t")] int nlen);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void sodium_increment([NativeTypeName("unsigned char *")] byte[] n, [NativeTypeName("const size_t")] UIntPtr nlen);
+        public static extern void sodium_increment([NativeTypeName("unsigned char *")] byte* n, [NativeTypeName("const size_t")] int nlen);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void sodium_add([NativeTypeName("unsigned char *")] byte[] a, [NativeTypeName("const unsigned char *")] byte[] b, [NativeTypeName("const size_t")] UIntPtr len);
+        public static extern void sodium_add([NativeTypeName("unsigned char *")] byte* a, [NativeTypeName("const unsigned char *")] byte[] b, [NativeTypeName("const size_t")] int len);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void sodium_sub([NativeTypeName("unsigned char *")] byte[] a, [NativeTypeName("const unsigned char *")] byte[] b, [NativeTypeName("const size_t")] UIntPtr len);
+        public static extern void sodium_sub([NativeTypeName("unsigned char *")] byte* a, [NativeTypeName("const unsigned char *")] byte[] b, [NativeTypeName("const size_t")] int len);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern sbyte* sodium_bin2hex([NativeTypeName("char *const")] string hex, [NativeTypeName("const size_t")] UIntPtr hex_maxlen, [NativeTypeName("const unsigned char *const")] byte* bin, [NativeTypeName("const size_t")] UIntPtr bin_len);
+        public static extern sbyte* sodium_bin2hex([NativeTypeName("char *const")] sbyte* hex, [NativeTypeName("const size_t")] int hex_maxlen, [NativeTypeName("const unsigned char *const")] byte* bin, [NativeTypeName("const size_t")] int bin_len);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int sodium_hex2bin([NativeTypeName("unsigned char *const")] byte* bin, [NativeTypeName("const size_t")] UIntPtr bin_maxlen, [NativeTypeName("const char *const")] string hex, [NativeTypeName("const size_t")] UIntPtr hex_len, [NativeTypeName("const char *const")] string ignore, [NativeTypeName("size_t *const")] out int bin_len, [NativeTypeName("const char **const")] sbyte** hex_end);
+        public static extern int sodium_hex2bin([NativeTypeName("unsigned char *const")] byte* bin, [NativeTypeName("const size_t")] int bin_maxlen, [NativeTypeName("const char *const")] string hex, [NativeTypeName("const size_t")] int hex_len, [NativeTypeName("const char *const")] string ignore, [NativeTypeName("size_t *const")] out int bin_len, [NativeTypeName("const char **const")] sbyte** hex_end);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
-        public static extern UIntPtr sodium_base64_encoded_len([NativeTypeName("const size_t")] UIntPtr bin_len, [NativeTypeName("const int")] int variant);
+        public static extern UIntPtr sodium_base64_encoded_len([NativeTypeName("const size_t")] int bin_len, [NativeTypeName("const int")] int variant);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern sbyte* sodium_bin2base64([NativeTypeName("char *const")] string b64, [NativeTypeName("const size_t")] UIntPtr b64_maxlen, [NativeTypeName("const unsigned char *const")] byte* bin, [NativeTypeName("const size_t")] UIntPtr bin_len, [NativeTypeName("const int")] int variant);
+        public static extern sbyte* sodium_bin2base64([NativeTypeName("char *const")] sbyte* b64, [NativeTypeName("const size_t")] int b64_maxlen, [NativeTypeName("const unsigned char *const")] byte* bin, [NativeTypeName("const size_t")] int bin_len, [NativeTypeName("const int")] int variant);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int sodium_base642bin([NativeTypeName("unsigned char *const")] byte* bin, [NativeTypeName("const size_t")] UIntPtr bin_maxlen, [NativeTypeName("const char *const")] string b64, [NativeTypeName("const size_t")] UIntPtr b64_len, [NativeTypeName("const char *const")] string ignore, [NativeTypeName("size_t *const")] UIntPtr* bin_len, [NativeTypeName("const char **const")] sbyte** b64_end, [NativeTypeName("const int")] int variant);
+        public static extern int sodium_base642bin([NativeTypeName("unsigned char *const")] byte* bin, [NativeTypeName("const size_t")] int bin_maxlen, [NativeTypeName("const char *const")] string b64, [NativeTypeName("const size_t")] int b64_len, [NativeTypeName("const char *const")] string ignore, [NativeTypeName("size_t *const")] out int bin_len, [NativeTypeName("const char **const")] sbyte** b64_end, [NativeTypeName("const int")] int variant);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int sodium_mlock([NativeTypeName("void *const")] void* addr, [NativeTypeName("const size_t")] UIntPtr len);
+        public static extern int sodium_mlock([NativeTypeName("void *const")] void* addr, [NativeTypeName("const size_t")] int len);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int sodium_munlock([NativeTypeName("void *const")] void* addr, [NativeTypeName("const size_t")] UIntPtr len);
+        public static extern int sodium_munlock([NativeTypeName("void *const")] void* addr, [NativeTypeName("const size_t")] int len);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void* sodium_malloc([NativeTypeName("const size_t")] UIntPtr size);
+        public static extern void* sodium_malloc([NativeTypeName("const size_t")] int size);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void* sodium_allocarray([NativeTypeName("size_t")] UIntPtr count, [NativeTypeName("size_t")] UIntPtr size);
@@ -3178,7 +2985,7 @@ namespace unity.libsodium
         public static extern int sodium_mprotect_readwrite(void* ptr);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int sodium_pad([NativeTypeName("size_t *")] UIntPtr* padded_buflen_p, [NativeTypeName("unsigned char *")] byte[] buf, [NativeTypeName("size_t")] UIntPtr unpadded_buflen, [NativeTypeName("size_t")] UIntPtr blocksize, [NativeTypeName("size_t")] UIntPtr max_buflen);
+        public static extern int sodium_pad([NativeTypeName("size_t *")] UIntPtr* padded_buflen_p, [NativeTypeName("unsigned char *")] byte* buf, [NativeTypeName("size_t")] UIntPtr unpadded_buflen, [NativeTypeName("size_t")] UIntPtr blocksize, [NativeTypeName("size_t")] UIntPtr max_buflen);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int sodium_unpad([NativeTypeName("size_t *")] UIntPtr* unpadded_buflen_p, [NativeTypeName("const unsigned char *")] byte[] buf, [NativeTypeName("size_t")] UIntPtr padded_buflen, [NativeTypeName("size_t")] UIntPtr blocksize);
@@ -3214,10 +3021,10 @@ namespace unity.libsodium
         [NativeTypeName("#define SODIUM_VERSION_STRING \"1.0.18\"")]
         public static byte[] SODIUM_VERSION_STRING => new byte[] { 0x31, 0x2E, 0x30, 0x2E, 0x31, 0x38, 0x00 };
 
-        [NativeTypeName("#define SODIUM_LIBRARY_VERSION_MAJOR 11")]
-        public const int SODIUM_LIBRARY_VERSION_MAJOR = 11;
+        [NativeTypeName("#define SODIUM_LIBRARY_VERSION_MAJOR 10")]
+        public const int SODIUM_LIBRARY_VERSION_MAJOR = 10;
 
-        [NativeTypeName("#define SODIUM_LIBRARY_VERSION_MINOR 0")]
-        public const int SODIUM_LIBRARY_VERSION_MINOR = 0;
+        [NativeTypeName("#define SODIUM_LIBRARY_VERSION_MINOR 3")]
+        public const int SODIUM_LIBRARY_VERSION_MINOR = 3;
     }
 }
