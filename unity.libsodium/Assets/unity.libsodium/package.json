@@ -1,0 +1,11 @@
+{
+    "name": "com.netpyoung.libsodium",
+    "displayName": "Unity.LibSodium",
+    "version": "0.2.0",
+    "unity": "2018.4",
+    "description": "libsodium made easy for Unity3d.",
+    "keywords": [ "libsodium", "unity.libsodium" ],
+    "license": "MIT",
+    "category": "crypto",
+    "dependencies": {}
+}

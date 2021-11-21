@@ -11,30 +11,21 @@
 
 ## installation
 
+## using .unitypackage
+
 - [Download this .unitypackage from Release Page](https://github.com/netpyoung/unity.libsodium/releases)
+
+## using UPM
+
+using #{version} for versioning.
+
+``` json
+"com.netpyoung.libsodium": "https://github.com/netpyoung/unity.libsodium.git?path=unity.libsodium/Assets/unity.libsodium#0.2.0"
+```
 
 ## Example
 
-``` csharp
-var x = NativeLibsodium.sodium_init();
-Debug.Log (x);
-
-
-const string MESSAGE = "Test message to encrypt";
-var nonce = StreamEncryption.GenerateNonceChaCha20();
-var key = StreamEncryption.GenerateKey();
-
-//encrypt it
-var encrypted = StreamEncryption.EncryptChaCha20(MESSAGE, nonce, key);
-
-
-//decrypt it
-var decrypted = StreamEncryption.DecryptChaCha20(encrypted, nonce, key);
-
-Debug.Log (MESSAGE);
-Debug.Log (Encoding.UTF8.GetString(encrypted));
-Debug.Log (Encoding.UTF8.GetString(decrypted));
-```
+- check [unity.libsodium.test](https://github.com/netpyoung/unity.libsodium/tree/master/unity.libsodium/Assets/unity.libsodium.test)
 
 ## License
 
