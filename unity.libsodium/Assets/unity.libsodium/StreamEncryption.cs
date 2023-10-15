@@ -85,7 +85,7 @@ namespace unity.libsodium
             byte[] buffer = new byte[count];
             fixed (byte* bufferPtr = buffer)
             {
-                NativeLibsodium.randombytes_buf(bufferPtr, count);
+                NativeLibsodium.randombytes_buf(bufferPtr, (uint)count);
             }
             return buffer;
         }
@@ -103,8 +103,8 @@ namespace unity.libsodium
             {
                 //we call sodium_hex2bin with some chars to be ignored
                 int ret = NativeLibsodium.sodium_hex2bin(
-                    arrPtr, arr.Length,
-                    hex, hexBytes.Length,
+                    arrPtr, (uint)arr.Length,
+                    hex, (uint)hexBytes.Length,
                     IGNORED_CHARS,
                     out binLength,
                     null
