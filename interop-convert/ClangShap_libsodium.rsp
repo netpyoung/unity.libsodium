@@ -1,11 +1,15 @@
 --config
 compatible-codegen
 generate-macro-bindings
+generate-helper-types
 multi-file
 unix-types
 log-visited-files
+--include-directory
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/
+libsodium/src/libsodium/include/
 --file-directory 
-include/sodium
+libsodium/src/libsodium/include/sodium
 --file
 core.h
 crypto_aead_aegis128l.h

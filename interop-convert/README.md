@@ -25,11 +25,10 @@
 /// Change
 | before                                          | after                                            |
 | ----------------------------------------------- | ------------------------------------------------ |
-| ReadOnlySpan<byte>                              | byte[]                                           |
 | [NativeTypeName("const unsigned char *")] byte* | [NativeTypeName("const unsigned char *")] byte[] |
 | [NativeTypeName("const char *const")] sbyte*    | [NativeTypeName("const char *const")] string     |
-| [NativeTypeName("const size_t")] UIntPtr        | [NativeTypeName("const size_t")] int             |
-| [NativeTypeName("size_t *const")] UIntPtr*      | [NativeTypeName("size_t *const")] out int        |
+| [NativeTypeName("const size_t")] UIntPtr        | [NativeTypeName("const size_t")] uint             |
+| [NativeTypeName("size_t *const")] UIntPtr*      | [NativeTypeName("size_t *const")] out uint        |
 
 ```
 
