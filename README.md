@@ -7,7 +7,7 @@
 ## prebuilt library
 
 - prebuilt library are maintained by [prebuilt-libsodium](https://github.com/netpyoung/prebuilt-libsodium)
-  - libsodium 1.0.19
+  - libsodium 1.0.20-RELEASE
 
 ## installation
 
@@ -20,7 +20,7 @@
 using #{version} for versioning.
 
 ``` json
-"com.netpyoung.libsodium": "https://github.com/netpyoung/unity.libsodium.git?path=unity.libsodium/Assets/unity.libsodium#0.2.2"
+"com.netpyoung.libsodium": "https://github.com/netpyoung/unity.libsodium.git?path=unity.libsodium/Assets/unity.libsodium#0.2.3"
 ```
 
 ## Example
