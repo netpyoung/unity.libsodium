@@ -7,5 +7,12 @@
     "keywords": [ "libsodium", "unity.libsodium" ],
     "license": "MIT",
     "category": "crypto",
-    "dependencies": {}
+    "dependencies": {},
+    "samples": [
+      {
+        "displayName": "SampleBasic",
+        "description": "SampleBasic.",
+        "path": "Samples~/SampleBasic"
+      }
+    ]
 }
