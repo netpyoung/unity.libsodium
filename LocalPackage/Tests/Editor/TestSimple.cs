@@ -4,7 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace unity.libsodium.test
+namespace unity.libsodium.EditorTests
 {
     public class TestSimple
     {

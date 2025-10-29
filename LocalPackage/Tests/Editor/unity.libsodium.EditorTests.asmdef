@@ -1,6 +1,6 @@
 {
-    "name": "unity.libsodium.test",
-    "rootNamespace": "unity.libsodium.test",
+    "name": "unity.libsodium.EditorTests",
+    "rootNamespace": "unity.libsodium.EditorTests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
