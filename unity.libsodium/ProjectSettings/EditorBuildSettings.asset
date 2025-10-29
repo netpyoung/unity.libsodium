@@ -4,9 +4,6 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Packages/com.netpyoung.libsodium/Sample/SampleBasic/SampleBasic.unity
-    guid: b890b731d2ed94cbbb7e2dd79d4c8801
+  m_Scenes: []
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
