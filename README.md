@@ -16,7 +16,7 @@
 using #{version} for versioning.
 
 ``` json
-"com.netpyoung.libsodium": "https://github.com/netpyoung/unity.libsodium.git?path=LocalPackage#0.2.3"
+"com.netpyoung.libsodium": "https://github.com/netpyoung/unity.libsodium.git?path=LocalPackage#0.2.4"
 ```
 
 ## License
