@@ -11,21 +11,13 @@
 
 ## installation
 
-## using .unitypackage
-
-- [Download this .unitypackage from Release Page](https://github.com/netpyoung/unity.libsodium/releases)
-
-## using UPM
+### using UPM
 
 using #{version} for versioning.
 
 ``` json
-"com.netpyoung.libsodium": "https://github.com/netpyoung/unity.libsodium.git?path=unity.libsodium/Assets/unity.libsodium#0.2.3"
+"com.netpyoung.libsodium": "https://github.com/netpyoung/unity.libsodium.git?path=LocalPackage#0.2.3"
 ```
-
-## Example
-
-- check [unity.libsodium.test](https://github.com/netpyoung/unity.libsodium/tree/master/unity.libsodium/Assets/unity.libsodium.test)
 
 ## License
 
