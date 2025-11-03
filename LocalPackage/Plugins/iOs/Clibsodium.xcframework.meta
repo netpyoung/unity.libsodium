@@ -22,14 +22,18 @@ PluginImporter:
         Exclude Linux64: 1
         Exclude LinuxUniversal: 1
         Exclude OSXUniversal: 1
+        Exclude VisionOS: 1
+        Exclude WebGL: 1
         Exclude Win: 1
         Exclude Win64: 1
         Exclude iOS: 0
+        Exclude tvOS: 0
   - first:
       Android: Android
     second:
       enabled: 0
       settings:
+        AndroidSharedLibraryType: Executable
         CPU: ARMv7
   - first:
       Any: 
@@ -93,10 +97,30 @@ PluginImporter:
       settings:
         CPU: AnyCPU
   - first:
+      VisionOS: VisionOS
+    second:
+      enabled: 0
+      settings:
+        AddToEmbeddedBinaries: false
+        CPU: AnyCPU
+        CompileFlags: 
+        FrameworkDependencies: 
+  - first:
       iPhone: iOS
     second:
       enabled: 1
       settings:
+        AddToEmbeddedBinaries: false
+        CPU: AnyCPU
+        CompileFlags: 
+        FrameworkDependencies: 
+  - first:
+      tvOS: tvOS
+    second:
+      enabled: 1
+      settings:
+        AddToEmbeddedBinaries: false
+        CPU: AnyCPU
         CompileFlags: 
         FrameworkDependencies: 
   userData: 
