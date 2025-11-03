@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.5]
+
+- libsodium version 1.0.20-RELEASE
+- add WebGL/libsodium.a
+
+
 ## [0.2.4]
 
 - libsodium version 1.0.20-RELEASE

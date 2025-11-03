@@ -1,7 +1,7 @@
 {
     "name": "com.netpyoung.libsodium",
     "displayName": "Unity.LibSodium",
-    "version": "0.2.4",
+    "version": "0.2.5",
     "unity": "2018.4",
     "description": "libsodium made easy for Unity3d.",
     "keywords": [ "libsodium", "unity.libsodium" ],
