@@ -6,8 +6,13 @@ namespace unity.libsodium
 {
     public static unsafe partial class NativeLibsodium
     {
-#if UNITY_IOS && !UNITY_EDITOR
-		const string DLL_NAME = "__Internal";
+
+#if UNITY_EDITOR
+        private const string DLL_NAME = "sodium";
+#elif UNITY_IOS
+        private const string DLL_NAME = "__Internal";
+#elif UNITY_WEBGL
+        private const string DLL_NAME = "__Internal";
 #else
         private const string DLL_NAME = "sodium";
 #endif
