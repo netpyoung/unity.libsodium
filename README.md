@@ -2,7 +2,7 @@
 
 ## What's this?
 
- I decided that there should be a simpler way and I created **unity.libsodium**, a plugin that helps you to use [libsodium](https://github.com/jedisct1/libsodium/) in your Unity3d projects in a clear and easy way and works in **iOS, Android, OSX, Windows, Android** projects.
+ I decided that there should be a simpler way and I created **unity.libsodium**, a plugin that helps you to use [libsodium](https://github.com/jedisct1/libsodium/) in your Unity3d projects in a clear and easy way and works in **iOS, Android, OSX, Windows, WebGL** projects.
 
 ## prebuilt library
 
